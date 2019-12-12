@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  cartographer-db:
+    image: postgres:10.4
+    volumes:
+      - cartographerdbvolume:/var/lib/postgresql/data/
+  cartographer-backend:
+    build: .
+    entrypoint: /code/cartographer_backend/entrypoint.sh
+    volumes:
+      - .:/code/cartographer_backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - cartographer-db
+    ports:
+      - "3000:3000"
+
+volumes:
+  cartographerdbvolume:
