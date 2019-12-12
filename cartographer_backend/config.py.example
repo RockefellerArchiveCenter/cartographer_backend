@@ -26,7 +26,7 @@ ASPACE = {
   "repo_id": 2,
 }
 
-ALLOWED_HOSTS = ['cartographer-backend', 'localhost']
+ALLOWED_HOSTS = ['cartographer-backend', 'localhost', '192.168.50.27']
 
 STATIC_URL = '/static/'
 

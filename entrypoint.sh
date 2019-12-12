@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f manage.py ]; then
-  cd api
+  cd cartographer_backend
 fi
 
 ./wait-for-it.sh cartographer-db:5432 -- echo "Creating config file"
