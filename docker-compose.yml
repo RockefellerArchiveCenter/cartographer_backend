@@ -5,17 +5,34 @@ services:
     image: postgres:10.4
     volumes:
       - cartographerdbvolume:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=cartographer_backend
+      - POSTGRES_PASSWORD=cartographer_backend
+      - POSTGRES_DB=cartographer_backend_dev
   cartographer-backend:
     build: .
-    entrypoint: /code/cartographer_backend/entrypoint.sh
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code/cartographer_backend
     ports:
       - "8000:8000"
     depends_on:
       - cartographer-db
-    ports:
-      - "3000:3000"
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=^6yxvs8k9czbwt9o8!y^ay)$$l4^*9d(eykpo8%u5)-js9n6wfk
+      - DJANGO_ALLOWED_HOSTS=cartographer-backend localhost
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=cartographer_backend_dev
+      - SQL_USER=cartographer_backend
+      - SQL_PASSWORD=cartographer_backend
+      - SQL_HOST=cartographer-db
+      - SQL_PORT=5432
+      - AS_BASEURL=http://sandbox.archivesspace.org:8089/
+      - AS_USERNAME=admin
+      - AS_PASSWORD=admin
+      - AS_REPO_ID=2
+      - CORS_ORIGIN_WHITELIST=http://localhost:3000
 
 volumes:
   cartographerdbvolume:

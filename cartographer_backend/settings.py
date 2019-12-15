@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import requests
-from . import config as CF
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^6yxvs8k9czbwt9o8!y^ay)$l4^*9d(eykpo8%u5)-js9n6wfk'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get("DEBUG", default=0))
 
-ALLOWED_HOSTS = CF.ALLOWED_HOSTS
+# 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space between each.
+# For example: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1'
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -80,7 +81,16 @@ WSGI_APPLICATION = 'cartographer_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = CF.DATABASES
+DATABASES = {
+    "default": {
+        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
+        "USER": os.environ.get("SQL_USER", "user"),
+        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("SQL_HOST", "localhost"),
+        "PORT": os.environ.get("SQL_PORT", "5432"),
+    }
+}
 
 
 # Password validation
@@ -119,8 +129,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = CF.STATIC_URL
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Django REST Framework
 REST_FRAMEWORK = {
@@ -128,26 +138,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 100
 }
 
-CORS_ORIGIN_WHITELIST = CF.CORS_ORIGIN_WHITELIST
+CORS_ORIGIN_WHITELIST = tuple(os.environ.get("CORS_ORIGIN_WHITELIST").split(" "))
 
-ASPACE = CF.ASPACE
-
-# AWS Deployment configuration
-# EC2_PRIVATE_IP = None
-#
-# try:
-#     resp = requests.get('http://169.254.170.2/v2/metadata')
-#     data = resp.json()
-#     # print(data)
-#
-#     container_meta = data['Containers'][0]
-#     EC2_PRIVATE_IP = container_meta['Networks'][0]['IPv4Addresses'][0]
-# except:
-#     # silently fail as we may not be in an ECS environment
-#     pass
-#
-# if EC2_PRIVATE_IP:
-#     # Be sure your ALLOWED_HOSTS is a list NOT a tuple
-#     # or .append() will fail
-#     ALLOWED_HOSTS.append(EC2_PRIVATE_IP)
-#     DATABASES = CF.AWS_DATABASES
+ASPACE = {
+  "baseurl": os.environ.get("AS_BASEURL", "http://sandbox.archivesspace.org:8089/"),
+  "username": os.environ.get("AS_USERNAME", "admin"),
+  "password": os.environ.get("AS_PASSWORD", "admin"),
+  "repo_id": int(os.environ.get("AS_REPO_ID", default=2)),
+}
