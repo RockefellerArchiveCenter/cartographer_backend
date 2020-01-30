@@ -21,5 +21,6 @@ urlpatterns = [
     re_path(r'^schema/', schema_view, name='schema'),
     path('api/', include(router.urls)),
     path('api/delete-feed/', DeletedArrangementMapView.as_view(), name='delete-feed'),
-    re_path('api/fetch-resource/(?P<resource_id>\d+)$', ResourceFetcherView.as_view(), name='fetch-resource')
+    re_path('api/fetch-resource/(?P<resource_id>\d+)$', ResourceFetcherView.as_view(), name='fetch-resource'),
+    re_path(r'^silk/', include('silk.urls', namespace='silk')),
 ]
