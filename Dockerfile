@@ -14,7 +14,7 @@ RUN apk update \
 # install dependencies
 RUN pip install --upgrade pip
 COPY requirements.txt /code/cartographer_backend/
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # copy project
 COPY . /code/cartographer_backend/
