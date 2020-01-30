@@ -4,8 +4,8 @@ FROM python:3.6-alpine
 WORKDIR /code/cartographer_backend/
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# ENV PYTHONDONTWRITEBYTECODE 1
+# ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies
 RUN apk update \
