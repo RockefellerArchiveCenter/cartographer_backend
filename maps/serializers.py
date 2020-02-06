@@ -47,14 +47,22 @@ class ArrangementMapSerializer(serializers.ModelSerializer):
     def get_ref(self, obj):
         try:
             return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
-        except:
+        except Exception:
             return reverse('arrangementmap-detail', kwargs={'pk': obj.pk})
 
 
 class ArrangementMapListSerializer(serializers.ModelSerializer):
+    ref = serializers.SerializerMethodField()
+
     class Meta:
         model = ArrangementMap
         fields = ('id', 'ref', 'title', 'publish')
+
+    def get_ref(self, obj):
+        try:
+            return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
+        except Exception:
+            return reverse('arrangementmap-detail', kwargs={'pk': obj.pk})
 
 
 class DeletedArrangementMapSerializer(serializers.ModelSerializer):
