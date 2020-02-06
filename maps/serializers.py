@@ -54,7 +54,7 @@ class ArrangementMapSerializer(serializers.ModelSerializer):
 class ArrangementMapListSerializer(serializers.ModelSerializer):
     class Meta:
         model = ArrangementMap
-        fields = ('id', 'title',)
+        fields = ('id', 'ref', 'title', 'publish')
 
 
 class DeletedArrangementMapSerializer(serializers.ModelSerializer):
