@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies
 RUN apt-get update \
-    && apt-get add postgresql-dev gcc python3-dev musl-dev
+    && apt-get install -y postgresql-dev gcc python3-dev musl-dev
 
 # install dependencies
 COPY requirements.txt /code/cartographer_backend/
