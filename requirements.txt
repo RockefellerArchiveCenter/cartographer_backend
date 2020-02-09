@@ -8,7 +8,7 @@ colorlog==4.1.0
 Django==2.2.7
 django-cors-headers==3.2.0
 django-js-asset==1.2.2
-django-mptt==0.10.0
+django-mptt==0.11.0
 djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 gitdb2==2.0.6
