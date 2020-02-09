@@ -1,7 +1,7 @@
 ArchivesSnake==0.8.2
 attrs==19.3.0
 boltons==20.0.0
-certifi==2019.9.11
+certifi==2019.11.28
 chardet==3.0.4
 clinner==1.12.3
 colorlog==4.1.0
