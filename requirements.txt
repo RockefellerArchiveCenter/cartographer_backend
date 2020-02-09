@@ -13,7 +13,7 @@ djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 gitdb2==2.0.6
 GitPython==3.0.5
-gunicorn==19.9.0
+gunicorn==20.0.4
 health-check==3.4.1
 idna==2.8
 more-itertools==7.2.0
