@@ -2,15 +2,20 @@ from datetime import datetime
 
 from asnake.aspace import ASpace
 from asnake.jsonmodel import JSONModelObject
+from cartographer_backend import settings
 from django.utils.timezone import make_aware
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
-from cartographer_backend import settings
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
-from .serializers import *
+from .models import (ArrangementMap, ArrangementMapComponent,
+                     DeletedArrangementMap)
+from .serializers import (ArrangementMapComponentListSerializer,
+                          ArrangementMapComponentSerializer,
+                          ArrangementMapListSerializer,
+                          ArrangementMapSerializer,
+                          DeletedArrangementMapSerializer)
 
 
 class ArrangementMapViewset(ModelViewSet):
