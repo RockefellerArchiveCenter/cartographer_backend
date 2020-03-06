@@ -1,8 +1,9 @@
-from django.db.models.signals import pre_delete, post_save
+from django.db.models.signals import post_save, pre_delete
 from django.dispatch import receiver
 from django.urls import reverse
 
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
+from .models import (ArrangementMap, ArrangementMapComponent,
+                     DeletedArrangementMap)
 
 
 @receiver(pre_delete, sender=ArrangementMap)

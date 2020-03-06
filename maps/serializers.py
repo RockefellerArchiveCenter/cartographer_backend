@@ -1,6 +1,8 @@
 from django.urls import reverse
 from rest_framework import serializers
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
+
+from .models import (ArrangementMap, ArrangementMapComponent,
+                     DeletedArrangementMap)
 
 
 class ArrangementMapComponentSerializer(serializers.ModelSerializer):

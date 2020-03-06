@@ -1,13 +1,13 @@
 import random
 import string
 
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
 
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
+from .models import ArrangementMap, DeletedArrangementMap
 from .serializers import ArrangementMapSerializer
-from .views import ArrangementMapViewset, ArrangementMapComponentViewset
+from .views import ArrangementMapComponentViewset, ArrangementMapViewset
 
 
 def get_title_string(length=10):
@@ -45,13 +45,13 @@ class CartographerTest(TestCase):
         self.assertTrue(map.created < map.modified, "Modified time was not updated")
 
     def delete_maps(self):
-        delete_number = random.randint(1, self.map_number-1)
+        delete_number = random.randint(1, self.map_number - 1)
         for i in range(delete_number):
             map = random.choice(ArrangementMap.objects.all())
             request = self.factory.delete(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json")
             response = ArrangementMapViewset.as_view(actions={"delete": "destroy"})(request, pk=map.pk)
             self.assertEqual(response.status_code, 204, "Wrong HTTP status code")
-        self.assertEqual(len(ArrangementMap.objects.all()), self.map_number-delete_number, "Wrong number of instances deleted")
+        self.assertEqual(len(ArrangementMap.objects.all()), self.map_number - delete_number, "Wrong number of instances deleted")
         self.assertEqual(len(DeletedArrangementMap.objects.all()), delete_number, "DeletedArrangementMap objects were not created on delete")
 
     def list_views(self):
