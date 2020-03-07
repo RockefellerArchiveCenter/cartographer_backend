@@ -28,3 +28,4 @@ sqlparse==0.3.0
 structlog==20.1.0
 uritemplate==3.0.1
 urllib3==1.25.8
+vcrpy==4.0.2

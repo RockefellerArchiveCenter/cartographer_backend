@@ -1,13 +1,23 @@
 import random
 import string
 
+import vcr
 from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
 
 from .models import ArrangementMap, DeletedArrangementMap
-from .serializers import ArrangementMapSerializer
+from .serializers import ArrangementMapComponent, ArrangementMapSerializer
 from .views import ArrangementMapComponentViewset, ArrangementMapViewset
+
+edit_vcr = vcr.VCR(
+    serializer='json',
+    cassette_library_dir='fixtures/cassettes',
+    record_mode='once',
+    match_on=['path', 'method'],
+    filter_query_parameters=['username', 'password'],
+    filter_headers=['Authorization'],
+)
 
 
 def get_title_string(length=10):
@@ -32,17 +42,19 @@ class CartographerTest(TestCase):
             self.assertEqual(map.publish, False, "Map was set to publish.")
 
     def edit_maps(self):
-        map = random.choice(ArrangementMap.objects.all())
-        title = get_title_string(20)
-        map.title = title
-        serializer = ArrangementMapSerializer(map)
-        request = self.factory.put(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json", data=serializer.data)
-        response = ArrangementMapViewset.as_view(actions={"put": "update"})(request, pk=map.pk)
-        self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
-        map.refresh_from_db()
-        self.assertEqual(title, map.title, "Title was not updated")
-        self.assertEqual(len(ArrangementMap.objects.all()), self.map_number, "Edit created a new instance")
-        self.assertTrue(map.created < map.modified, "Modified time was not updated")
+        with edit_vcr.use_cassette("edit-ArrangmentMap.json") as cass:
+            map = random.choice(ArrangementMap.objects.all())
+            title = get_title_string(20)
+            map.title = title
+            serializer = ArrangementMapSerializer(map)
+            request = self.factory.put(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json", data=serializer.data)
+            response = ArrangementMapViewset.as_view(actions={"put": "update"})(request, pk=map.pk)
+            self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
+            map.refresh_from_db()
+            self.assertEqual(title, map.title, "Title was not updated")
+            self.assertEqual(len(ArrangementMap.objects.all()), self.map_number, "Edit created a new instance")
+            self.assertTrue(map.created < map.modified, "Modified time was not updated")
+            self.assertEqual(len(cass.requests["get"]), len(ArrangementMapComponent.objects.filter(map=map)))
 
     def delete_maps(self):
         delete_number = random.randint(1, self.map_number - 1)
