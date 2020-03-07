@@ -2,15 +2,42 @@ from datetime import datetime
 
 from asnake.aspace import ASpace
 from asnake.jsonmodel import JSONModelObject
+from cartographer_backend import settings
+from django.core.exceptions import FieldError
 from django.utils.timezone import make_aware
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
-from cartographer_backend import settings
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
-from .serializers import *
+from .models import (ArrangementMap, ArrangementMapComponent,
+                     DeletedArrangementMap)
+from .serializers import (ArrangementMapComponentListSerializer,
+                          ArrangementMapComponentSerializer,
+                          ArrangementMapListSerializer,
+                          ArrangementMapSerializer,
+                          DeletedArrangementMapSerializer)
+
+
+def process_params(view):
+    """Filters querysets based on parameters.
+
+    If `last_modified` is present, only returns objects which have been modified
+    since that timestamp.
+
+    If `published` is present, only returns ArrangementMaps which have been
+    explicitly published or ArrangementMapComponents which belong to a published
+    map.
+    """
+    modified_since = int(view.request.query_params.get('modified_since', 0))
+    queryset = view.model.objects.filter(
+        modified__gte=make_aware(datetime.fromtimestamp(modified_since))).order_by('-modified')
+    if 'published' in view.request.query_params:
+        try:
+            queryset.exclude(publish=False)
+        except FieldError:
+            queryset.exclude(map__publish=False)
+    return queryset
 
 
 class ArrangementMapViewset(ModelViewSet):
@@ -35,13 +62,7 @@ class ArrangementMapViewset(ModelViewSet):
         return ArrangementMapSerializer
 
     def get_queryset(self):
-        modified_since = int(self.request.query_params.get('modified_since', 0))
-        if 'published' in self.request.query_params:
-            return ArrangementMap.objects.filter(
-                modified__gte=make_aware(datetime.fromtimestamp(modified_since)),
-                publish=True).order_by('-modified')
-        return ArrangementMap.objects.filter(
-            modified__gte=make_aware(datetime.fromtimestamp(modified_since))).order_by('-modified')
+        return process_params(self)
 
 
 class ArrangementMapComponentViewset(ModelViewSet):
@@ -65,6 +86,9 @@ class ArrangementMapComponentViewset(ModelViewSet):
         if self.action == 'list':
             return ArrangementMapComponentListSerializer
         return ArrangementMapComponentSerializer
+
+    def get_queryset(self):
+        return process_params(self)
 
 
 class DeletedArrangementMapView(ListAPIView):

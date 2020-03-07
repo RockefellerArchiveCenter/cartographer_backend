@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-import requests
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -141,8 +140,8 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = tuple(os.environ.get("CORS_ORIGIN_WHITELIST").split(" "))
 
 ASPACE = {
-  "baseurl": os.environ.get("AS_BASEURL", "http://sandbox.archivesspace.org:8089/"),
-  "username": os.environ.get("AS_USERNAME", "admin"),
-  "password": os.environ.get("AS_PASSWORD", "admin"),
-  "repo_id": int(os.environ.get("AS_REPO_ID", default=2)),
+    "baseurl": os.environ.get("AS_BASEURL", "http://sandbox.archivesspace.org:8089/"),
+    "username": os.environ.get("AS_USERNAME", "admin"),
+    "password": os.environ.get("AS_PASSWORD", "admin"),
+    "repo_id": int(os.environ.get("AS_REPO_ID", default=2)),
 }

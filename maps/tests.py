@@ -1,13 +1,13 @@
 import random
 import string
 
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
 
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
+from .models import ArrangementMap, DeletedArrangementMap
 from .serializers import ArrangementMapSerializer
-from .views import ArrangementMapViewset, ArrangementMapComponentViewset
+from .views import ArrangementMapComponentViewset, ArrangementMapViewset
 
 
 def get_title_string(length=10):
@@ -49,7 +49,7 @@ class CartographerTest(TestCase):
         self.assertTrue(map.created < map.modified, "Modified time was not updated")
 
     def delete_maps(self):
-        delete_number = random.randint(1, self.map_number-1)
+        delete_number = random.randint(1, self.map_number - 1)
         for i in range(delete_number):
             map = random.choice(ArrangementMap.objects.all())
             request = self.factory.delete(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json")
@@ -57,7 +57,7 @@ class CartographerTest(TestCase):
             self.assertEqual(response.status_code, 204, "Wrong HTTP status code")
         self.assertEqual(
             len(ArrangementMap.objects.all()),
-            self.map_number-delete_number,
+            self.map_number - delete_number,
             "Wrong number of instances deleted")
         self.assertEqual(
             len(DeletedArrangementMap.objects.all()),
@@ -65,15 +65,16 @@ class CartographerTest(TestCase):
             "DeletedArrangementMap objects were not created on delete")
 
     def list_views(self):
-        for view in [('arrangementmap-list', ArrangementMapViewset), ('arrangementmapcomponent-list', ArrangementMapComponentViewset)]:
-            request = self.factory.get(reverse(view[0]), format="json")
-            response = view[1].as_view(actions={"get": "list"})(request)
-            self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
-        request = self.factory.get(
-            '{}?modified_since={}'.format(reverse('arrangementmap-list'), random.randint(1500000000, 2500000000)),
-            format="json")
-        response = ArrangementMapViewset.as_view(actions={"get": "list"})(request)
-        self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
+        for view, viewset in [('arrangementmap-list', ArrangementMapViewset), ('arrangementmapcomponent-list', ArrangementMapComponentViewset)]:
+            request = self.factory.get(reverse(view), format="json")
+            response = viewset.as_view(actions={"get": "list"})(request)
+            self.assertEqual(response.status_code, 200, "Request error: {}".format(response.data))
+            request = self.factory.get('{}?modified_since={}'.format(reverse(view), random.randint(1500000000, 2500000000)), format="json")
+            response = viewset.as_view(actions={"get": "list"})(request)
+            self.assertEqual(response.status_code, 200, "Request error: {}".format(response.data))
+            request = self.factory.get('{}?published'.format(reverse(view)), format="json")
+            response = viewset.as_view(actions={"get": "list"})(request)
+            self.assertEqual(response.status_code, 200, "Request error: {}".format(response.data))
 
     def detail_views(self):
         obj = random.choice(ArrangementMap.objects.all())

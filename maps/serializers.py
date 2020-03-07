@@ -1,7 +1,7 @@
 from django.urls import reverse
 from rest_framework import serializers
-from .models import (ArrangementMap,
-                     ArrangementMapComponent,
+
+from .models import (ArrangementMap, ArrangementMapComponent,
                      DeletedArrangementMap)
 
 

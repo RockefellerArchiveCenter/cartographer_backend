@@ -1,18 +1,17 @@
 from django.contrib import admin
-from django.urls import path, re_path, include
+from django.urls import include, path, re_path
+from maps.views import (ArrangementMapComponentViewset, ArrangementMapViewset,
+                        DeletedArrangementMapView, ResourceFetcherView)
 from rest_framework import routers
 from rest_framework.schemas import get_schema_view
-
-from maps.views import (ArrangementMapViewset, ArrangementMapComponentViewset,
-                        DeletedArrangementMapView, ResourceFetcherView)
 
 router = routers.DefaultRouter()
 router.register(r'maps', ArrangementMapViewset, 'arrangementmap')
 router.register(r'components', ArrangementMapComponentViewset, 'arrangementmapcomponent')
 
 schema_view = get_schema_view(
-      title="Cartographer API",
-      description="Endpoints for Cartographer application."
+    title="Cartographer API",
+    description="Endpoints for Cartographer application."
 )
 
 urlpatterns = [
@@ -21,5 +20,5 @@ urlpatterns = [
     re_path(r'^schema/', schema_view, name='schema'),
     path('api/', include(router.urls)),
     path('api/delete-feed/', DeletedArrangementMapView.as_view(), name='delete-feed'),
-    re_path('api/fetch-resource/(?P<resource_id>\d+)$', ResourceFetcherView.as_view(), name='fetch-resource')
+    re_path(r'api/fetch-resource/(?P<resource_id>\d+)$', ResourceFetcherView.as_view(), name='fetch-resource')
 ]
