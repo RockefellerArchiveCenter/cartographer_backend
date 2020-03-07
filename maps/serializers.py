@@ -1,12 +1,31 @@
 from django.urls import reverse
 from rest_framework import serializers
-from .models import ArrangementMap, ArrangementMapComponent, DeletedArrangementMap
+from .models import (ArrangementMap,
+                     ArrangementMapComponent,
+                     DeletedArrangementMap)
+
+
+class ComponentReferenceSerializer(serializers.ModelSerializer):
+    ref = serializers.SerializerMethodField()
+    level = serializers.CharField(source='archivesspace_level')
+
+    class Meta:
+        model = ArrangementMapComponent
+        fields = ('ref', 'archivesspace_uri', 'level')
+
+    def get_ref(self, obj):
+        return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
 
 
 class ArrangementMapComponentSerializer(serializers.ModelSerializer):
+    ancestors = ComponentReferenceSerializer(read_only=True, many=True)
+    children = ComponentReferenceSerializer(read_only=True, many=True)
+    level = serializers.CharField(source='archivesspace_level')
+
     class Meta:
         model = ArrangementMapComponent
-        fields = ('id', 'title', 'map', 'parent', 'tree_index', 'archivesspace_uri')
+        fields = ('id', 'title', 'map', 'parent', 'tree_index', 'level',
+                  'archivesspace_uri', 'publish', 'ancestors', 'children')
 
 
 class ArrangementMapComponentListSerializer(serializers.ModelSerializer):
@@ -28,11 +47,11 @@ class ArrangementMapSerializer(serializers.ModelSerializer):
             parent = item.parent.id if item.parent else None
             ref = self.get_ref(item)
             if item.is_leaf_node():
-                tree.append({'id': item.pk, 'title': item.title, 'ref': ref,
+                tree.append({'id': item.pk, 'title': item.title, 'ref': ref, 'level': item.archivesspace_level,
                              'parent': parent, 'archivesspace_uri': item.archivesspace_uri,
                              'tree_index': item.tree_index})
             else:
-                tree.append({'id': item.pk, 'title': item.title, 'ref': ref,
+                tree.append({'id': item.pk, 'title': item.title, 'ref': ref, 'level': item.archivesspace_level,
                              'parent': parent, 'archivesspace_uri': item.archivesspace_uri,
                              'tree_index': item.tree_index, 'children': []})
                 self.process_tree_item(item.children.all().order_by('tree_index'), tree[-1].get('children'))
@@ -45,9 +64,9 @@ class ArrangementMapSerializer(serializers.ModelSerializer):
             return self.tree
 
     def get_ref(self, obj):
-        try:
+        if isinstance(obj, ArrangementMapComponent):
             return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
-        except Exception:
+        else:
             return reverse('arrangementmap-detail', kwargs={'pk': obj.pk})
 
 
@@ -59,10 +78,7 @@ class ArrangementMapListSerializer(serializers.ModelSerializer):
         fields = ('id', 'ref', 'title', 'publish')
 
     def get_ref(self, obj):
-        try:
-            return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
-        except Exception:
-            return reverse('arrangementmap-detail', kwargs={'pk': obj.pk})
+        return reverse('arrangementmap-detail', kwargs={'pk': obj.pk})
 
 
 class DeletedArrangementMapSerializer(serializers.ModelSerializer):

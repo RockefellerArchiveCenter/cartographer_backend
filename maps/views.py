@@ -14,16 +14,18 @@ from .serializers import *
 
 
 class ArrangementMapViewset(ModelViewSet):
-    """
+    """ArrangementMap endpoints.
+
     retrieve:
-    Return data about an ArrangementMap object, identified by a primary key.
+        Returns data about an ArrangementMap object, identified by a primary key.
 
     list:
-    Return paginated data about all ArrangementMap objects. Allows for two
-    URL parameters:
-      `modified_since` - only returns records modified after this time
-                         (formatted as a UTC timestamp)
-      `published` - returns only published ArrangementMap objects
+        Returns paginated data about all ArrangementMap objects. Allows for two
+
+        URL parameters:
+            `modified_since` - only returns records modified after this time
+                (formatted as a UTC timestamp)
+            `published` - returns only published ArrangementMap objects
     """
     model = ArrangementMap
 
@@ -35,17 +37,26 @@ class ArrangementMapViewset(ModelViewSet):
     def get_queryset(self):
         modified_since = int(self.request.query_params.get('modified_since', 0))
         if 'published' in self.request.query_params:
-            return ArrangementMap.objects.filter(modified__gte=make_aware(datetime.fromtimestamp(modified_since)), publish=True).order_by('-modified')
-        return ArrangementMap.objects.filter(modified__gte=make_aware(datetime.fromtimestamp(modified_since))).order_by('-modified')
+            return ArrangementMap.objects.filter(
+                modified__gte=make_aware(datetime.fromtimestamp(modified_since)),
+                publish=True).order_by('-modified')
+        return ArrangementMap.objects.filter(
+            modified__gte=make_aware(datetime.fromtimestamp(modified_since))).order_by('-modified')
 
 
 class ArrangementMapComponentViewset(ModelViewSet):
-    """
+    """ArrangementMapComponent endpoints.
+
     retrieve:
-    Return data about an ArrangementMapComponent object, identified by a primary key.
+        Returns data about an ArrangementMapComponent object, identified by a primary key.
 
     list:
-    Return paginated data about all ArrangementMapComponent objects.
+        Returns paginated data about all ArrangementMapComponent objects.
+
+        URL parameters:
+            `modified_since` - only returns records modified after this time
+                (formatted as a UTC timestamp)
+            `published` - returns only published ArrangementMap objects
     """
     model = ArrangementMapComponent
     queryset = ArrangementMapComponent.objects.all().order_by('-modified')
@@ -57,16 +68,18 @@ class ArrangementMapComponentViewset(ModelViewSet):
 
 
 class DeletedArrangementMapView(ListAPIView):
-    """
+    """List of deleted ArrangementMaps.
+
     list:
-    Return paginated data about all Deleted ArrangementMap Objects.
+        Return paginated data about all DeletedArrangementMap objects.
     """
     model = DeletedArrangementMap
     serializer_class = DeletedArrangementMapSerializer
 
     def get_queryset(self):
         deleted_since = int(self.request.query_params.get('deleted_since', 0))
-        return DeletedArrangementMap.objects.filter(deleted__gte=make_aware(datetime.fromtimestamp(deleted_since))).order_by('-deleted')
+        return DeletedArrangementMap.objects.filter(
+            deleted__gte=make_aware(datetime.fromtimestamp(deleted_since))).order_by('-deleted')
 
 
 class ResourceFetcherView(APIView):

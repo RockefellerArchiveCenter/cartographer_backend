@@ -24,7 +24,9 @@ class CartographerTest(TestCase):
 
     def create_maps(self):
         for i in range(self.map_number):
-            request = self.factory.post(reverse('arrangementmap-list'), format="json", data={'title': get_title_string()})
+            request = self.factory.post(
+                reverse('arrangementmap-list'), format="json",
+                data={'title': get_title_string(), 'level': get_title_string(length=5)})
             response = ArrangementMapViewset.as_view(actions={"post": "create"})(request)
             self.assertEqual(response.status_code, 201, "Wrong HTTP status code")
         self.assertEqual(len(ArrangementMap.objects.all()), self.map_number, "Wrong number of instances created")
@@ -36,7 +38,9 @@ class CartographerTest(TestCase):
         title = get_title_string(20)
         map.title = title
         serializer = ArrangementMapSerializer(map)
-        request = self.factory.put(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json", data=serializer.data)
+        request = self.factory.put(
+            reverse('arrangementmap-detail', kwargs={"pk": map.pk}),
+            format="json", data=serializer.data)
         response = ArrangementMapViewset.as_view(actions={"put": "update"})(request, pk=map.pk)
         self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
         map.refresh_from_db()
@@ -51,15 +55,23 @@ class CartographerTest(TestCase):
             request = self.factory.delete(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json")
             response = ArrangementMapViewset.as_view(actions={"delete": "destroy"})(request, pk=map.pk)
             self.assertEqual(response.status_code, 204, "Wrong HTTP status code")
-        self.assertEqual(len(ArrangementMap.objects.all()), self.map_number-delete_number, "Wrong number of instances deleted")
-        self.assertEqual(len(DeletedArrangementMap.objects.all()), delete_number, "DeletedArrangementMap objects were not created on delete")
+        self.assertEqual(
+            len(ArrangementMap.objects.all()),
+            self.map_number-delete_number,
+            "Wrong number of instances deleted")
+        self.assertEqual(
+            len(DeletedArrangementMap.objects.all()),
+            delete_number,
+            "DeletedArrangementMap objects were not created on delete")
 
     def list_views(self):
         for view in [('arrangementmap-list', ArrangementMapViewset), ('arrangementmapcomponent-list', ArrangementMapComponentViewset)]:
             request = self.factory.get(reverse(view[0]), format="json")
             response = view[1].as_view(actions={"get": "list"})(request)
             self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
-        request = self.factory.get('{}?modified_since={}'.format(reverse('arrangementmap-list'), random.randint(1500000000, 2500000000)), format="json")
+        request = self.factory.get(
+            '{}?modified_since={}'.format(reverse('arrangementmap-list'), random.randint(1500000000, 2500000000)),
+            format="json")
         response = ArrangementMapViewset.as_view(actions={"get": "list"})(request)
         self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
 
@@ -73,7 +85,9 @@ class CartographerTest(TestCase):
         response = self.client.get(reverse('delete-feed'), format="json")
         self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
         self.assertTrue(response.data['count'] > 0, "No deleted instances")
-        time_response = self.client.get('{}?deleted_since={}'.format(reverse('delete-feed'), random.randint(1500000000, 2500000000)), format="json")
+        time_response = self.client.get(
+            '{}?deleted_since={}'.format(reverse('delete-feed'), random.randint(1500000000, 2500000000)),
+            format="json")
         self.assertEqual(time_response.status_code, 200, "Wrong HTTP status code")
 
     def schema(self):
