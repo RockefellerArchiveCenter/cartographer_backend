@@ -5,9 +5,11 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
 
-from .models import ArrangementMap, DeletedArrangementMap
+from .models import (ArrangementMap, ArrangementMapComponent,
+                     DeletedArrangementMap)
 from .serializers import ArrangementMapSerializer
-from .views import ArrangementMapComponentViewset, ArrangementMapViewset
+from .views import (ArrangementMapComponentViewset, ArrangementMapViewset,
+                    FindByIdView)
 
 
 def get_title_string(length=10):
@@ -30,6 +32,24 @@ class CartographerTest(TestCase):
         self.assertEqual(len(ArrangementMap.objects.all()), self.map_number, "Wrong number of instances created")
         for map in ArrangementMap.objects.all():
             self.assertEqual(map.publish, False, "Map was set to publish.")
+
+    def create_components(self):
+        map = random.choice(ArrangementMap.objects.all())
+        for i in range(self.component_number):
+            request = self.factory.post(
+                reverse('arrangementmapcomponent-list'),
+                format="json",
+                data={
+                    'title': get_title_string(),
+                    'archivesspace_uri': get_title_string(length=15),
+                    'map': map.pk})
+            response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
+            self.assertEqual(response.status_code, 201, "Error creating component: {}".format(response.data))
+        self.assertEqual(
+            len(ArrangementMapComponent.objects.all()),
+            self.component_number,
+            "Expecting {} ArrangementMapComponent objects but got {}".format(
+                self.component_number, len(ArrangementMapComponent.objects.all())))
 
     def edit_maps(self):
         map = random.choice(ArrangementMap.objects.all())
@@ -79,15 +99,24 @@ class CartographerTest(TestCase):
         time_response = self.client.get('{}?deleted_since={}'.format(reverse('delete-feed'), random.randint(1500000000, 2500000000)), format="json")
         self.assertEqual(time_response.status_code, 200, "Wrong HTTP status code")
 
+    def find_by_id_view(self):
+        map = random.choice(ArrangementMapComponent.objects.all())
+        uri = map.archivesspace_uri
+        request = self.factory.get("{}?uri={}".format(reverse('find-by-id'), uri), format="json")
+        response = FindByIdView.as_view()(request)
+        self.assertEqual(response.status_code, 200, "FindById error: {}".format(response.data))
+
     def schema(self):
         schema = self.client.get(reverse('schema'))
         self.assertEqual(schema.status_code, 200, "Wrong HTTP code")
 
     def test_maps(self):
         self.create_maps()
+        self.create_components()
         self.edit_maps()
-        self.delete_maps()
         self.list_views()
         self.detail_views()
+        self.find_by_id_view()
+        self.delete_maps()
         self.delete_feed_view()
         self.schema()
