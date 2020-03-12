@@ -49,6 +49,7 @@ class CartographerTest(TestCase):
                 data={
                     'title': get_title_string(),
                     'archivesspace_uri': get_title_string(length=15),
+                    'level': random.choice(['collection', 'series', 'subseries']),
                     'map': map.pk})
             response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
             self.assertEqual(response.status_code, 201, "Error creating component: {}".format(response.data))
