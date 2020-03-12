@@ -123,7 +123,7 @@ class ResourceFetcherView(APIView):
             return Response(str(e), status=500)
 
 
-class FindByIdView(ListAPIView):
+class FindByURIView(ListAPIView):
     """Returns all ArrangementMapComponent objects whose `archivesspace_uri`
     property matches a sumitted URI.
 

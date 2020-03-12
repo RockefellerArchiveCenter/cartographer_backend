@@ -10,7 +10,7 @@ from .models import (ArrangementMap, ArrangementMapComponent,
 from .serializers import (ArrangementMapComponentSerializer,
                           ArrangementMapSerializer)
 from .views import (ArrangementMapComponentViewset, ArrangementMapViewset,
-                    FindByIdView)
+                    FindByURIView)
 
 
 def get_title_string(length=10):
@@ -116,13 +116,13 @@ class CartographerTest(TestCase):
             format="json")
         self.assertEqual(time_response.status_code, 200, "Wrong HTTP status code")
 
-    def find_by_id_view(self):
-        """Tests FindByIdView."""
+    def find_by_uri_view(self):
+        """Tests FindByURIView."""
         map = random.choice(ArrangementMapComponent.objects.all())
         uri = map.archivesspace_uri
-        request = self.factory.get("{}?uri={}".format(reverse('find-by-id'), uri), format="json")
-        response = FindByIdView.as_view()(request)
-        self.assertEqual(response.status_code, 200, "FindById error: {}".format(response.data))
+        request = self.factory.get("{}?uri={}".format(reverse('find-by-uri'), uri), format="json")
+        response = FindByURIView.as_view()(request)
+        self.assertEqual(response.status_code, 200, "FindByURI error: {}".format(response.data))
         self.assertTrue(
             response.data["count"] >= 1,
             "Response count is {}, should have been at least 1".format(response.data["count"]))
