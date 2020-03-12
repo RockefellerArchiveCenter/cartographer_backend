@@ -42,16 +42,18 @@ def process_params(view):
 
 
 class ArrangementMapViewset(ModelViewSet):
-    """
+    """ArrangementMap endpoints.
+
     retrieve:
-    Return data about an ArrangementMap object, identified by a primary key.
+        Returns data about an ArrangementMap object, identified by a primary key.
 
     list:
-    Return paginated data about all ArrangementMap objects. Allows for two
-    URL parameters:
-      `modified_since` - only returns records modified after this time
-                         (formatted as a UTC timestamp)
-      `published` - returns only published ArrangementMap objects
+        Returns paginated data about all ArrangementMap objects. Allows for two
+
+        URL parameters:
+            `modified_since` - only returns records modified after this time
+                (formatted as a UTC timestamp)
+            `published` - returns only published ArrangementMap objects
     """
     model = ArrangementMap
 
@@ -65,12 +67,18 @@ class ArrangementMapViewset(ModelViewSet):
 
 
 class ArrangementMapComponentViewset(ModelViewSet):
-    """
+    """ArrangementMapComponent endpoints.
+
     retrieve:
-    Return data about an ArrangementMapComponent object, identified by a primary key.
+        Returns data about an ArrangementMapComponent object, identified by a primary key.
 
     list:
-    Return paginated data about all ArrangementMapComponent objects.
+        Returns paginated data about all ArrangementMapComponent objects.
+
+        URL parameters:
+            `modified_since` - only returns records modified after this time
+                (formatted as a UTC timestamp)
+            `published` - returns only published ArrangementMap objects
     """
     model = ArrangementMapComponent
     queryset = ArrangementMapComponent.objects.all().order_by('-modified')

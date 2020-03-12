@@ -30,7 +30,9 @@ class CartographerTest(TestCase):
     def create_maps(self):
         """Test creation of ArrangementMap objects."""
         for i in range(self.map_number):
-            request = self.factory.post(reverse('arrangementmap-list'), format="json", data={'title': get_title_string()})
+            request = self.factory.post(
+                reverse('arrangementmap-list'), format="json",
+                data={'title': get_title_string(), 'level': get_title_string(length=5)})
             response = ArrangementMapViewset.as_view(actions={"post": "create"})(request)
             self.assertEqual(response.status_code, 201, "Wrong HTTP status code")
         self.assertEqual(len(ArrangementMap.objects.all()), self.map_number, "Wrong number of instances created")
@@ -80,8 +82,14 @@ class CartographerTest(TestCase):
             request = self.factory.delete(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json")
             response = ArrangementMapViewset.as_view(actions={"delete": "destroy"})(request, pk=map.pk)
             self.assertEqual(response.status_code, 204, "Wrong HTTP status code")
-        self.assertEqual(len(ArrangementMap.objects.all()), self.map_number - delete_number, "Wrong number of instances deleted")
-        self.assertEqual(len(DeletedArrangementMap.objects.all()), delete_number, "DeletedArrangementMap objects were not created on delete")
+        self.assertEqual(
+            len(ArrangementMap.objects.all()),
+            self.map_number - delete_number,
+            "Wrong number of instances deleted")
+        self.assertEqual(
+            len(DeletedArrangementMap.objects.all()),
+            delete_number,
+            "DeletedArrangementMap objects were not created on delete")
 
     def list_views(self):
         """Tests list views for ArrangementMap and ArrangementMapComponent objects."""
@@ -138,7 +146,7 @@ class CartographerTest(TestCase):
         self.edit_objects()
         self.list_views()
         self.detail_views()
-        self.find_by_id_view()
+        self.find_by_uri_view()
         self.delete_maps()
         self.delete_feed_view()
         self.schema()
