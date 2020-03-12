@@ -80,13 +80,10 @@ class CartographerTest(TestCase):
         delete_number = random.randint(1, self.map_number - 1)
         for i in range(delete_number):
             map = random.choice(ArrangementMap.objects.all())
+            delete_number += len(ArrangementMapComponent.objects.filter(map=map))
             request = self.factory.delete(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json")
             response = ArrangementMapViewset.as_view(actions={"delete": "destroy"})(request, pk=map.pk)
             self.assertEqual(response.status_code, 204, "Wrong HTTP status code")
-        self.assertEqual(
-            len(ArrangementMap.objects.all()),
-            self.map_number - delete_number,
-            "Wrong number of instances deleted")
         self.assertEqual(
             len(DeletedArrangementMap.objects.all()),
             delete_number,
