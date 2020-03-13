@@ -5,6 +5,7 @@ from asnake.jsonmodel import JSONModelObject
 from cartographer_backend import settings
 from django.core.exceptions import FieldError
 from django.utils.timezone import make_aware
+from rest_framework.exceptions import ParseError
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -41,16 +42,18 @@ def process_params(view):
 
 
 class ArrangementMapViewset(ModelViewSet):
-    """
+    """ArrangementMap endpoints.
+
     retrieve:
-    Return data about an ArrangementMap object, identified by a primary key.
+        Returns data about an ArrangementMap object, identified by a primary key.
 
     list:
-    Return paginated data about all ArrangementMap objects. Allows for two
-    URL parameters:
-      `modified_since` - only returns records modified after this time
-                         (formatted as a UTC timestamp)
-      `published` - returns only published ArrangementMap objects
+        Returns paginated data about all ArrangementMap objects. Allows for two
+
+        URL parameters:
+            `modified_since` - only returns records modified after this time
+                (formatted as a UTC timestamp)
+            `published` - returns only published ArrangementMap objects
     """
     model = ArrangementMap
 
@@ -86,12 +89,18 @@ class ArrangementMapViewset(ModelViewSet):
 
 
 class ArrangementMapComponentViewset(ModelViewSet):
-    """
+    """ArrangementMapComponent endpoints.
+
     retrieve:
-    Return data about an ArrangementMapComponent object, identified by a primary key.
+        Returns data about an ArrangementMapComponent object, identified by a primary key.
 
     list:
-    Return paginated data about all ArrangementMapComponent objects.
+        Returns paginated data about all ArrangementMapComponent objects.
+
+        URL parameters:
+            `modified_since` - only returns records modified after this time
+                (formatted as a UTC timestamp)
+            `published` - returns only published ArrangementMap objects
     """
     model = ArrangementMapComponent
     queryset = ArrangementMapComponent.objects.all().order_by('-modified')
@@ -106,19 +115,30 @@ class ArrangementMapComponentViewset(ModelViewSet):
 
 
 class DeletedArrangementMapView(ListAPIView):
-    """
+    """Returns deleted ArrangementMap and ArrangementMapComponent objects.
+
     list:
-    Return paginated data about all Deleted ArrangementMap Objects.
+        Return paginated data about all Deleted ArrangementMap Objects.
+
+    Params:
+        deleted_since (timestamp): an optional argument which limits return to
+            objects deleted since.
     """
     model = DeletedArrangementMap
     serializer_class = DeletedArrangementMapSerializer
 
     def get_queryset(self):
         deleted_since = int(self.request.query_params.get('deleted_since', 0))
-        return DeletedArrangementMap.objects.filter(deleted__gte=make_aware(datetime.fromtimestamp(deleted_since))).order_by('-deleted')
+        return DeletedArrangementMap.objects.filter(
+            deleted__gte=make_aware(datetime.fromtimestamp(deleted_since))).order_by('-deleted')
 
 
 class ResourceFetcherView(APIView):
+    """Fetches a resource from ArchivesSpace which matches a given ID.
+
+    Params:
+        resource_id (int): an ArchivesSpace identifier for a resource record.
+    """
 
     def get(self, request, *args, **kwargs):
         try:
@@ -131,3 +151,21 @@ class ResourceFetcherView(APIView):
             return Response(resource['error'], status=404)
         except Exception as e:
             return Response(str(e), status=500)
+
+
+class FindByURIView(ListAPIView):
+    """Returns all ArrangementMapComponent objects whose `archivesspace_uri`
+    property matches a sumitted URI.
+
+    Params:
+        uri (str): an ArchivesSpace URI
+    """
+    model = ArrangementMapComponent
+    serializer_class = ArrangementMapComponentSerializer
+
+    def get_queryset(self):
+        try:
+            uri = self.request.GET["uri"]
+            return ArrangementMapComponent.objects.filter(archivesspace_uri=uri)
+        except KeyError:
+            raise ParseError("Required URL parameter `uri` missing.")
