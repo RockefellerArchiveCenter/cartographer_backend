@@ -21,11 +21,15 @@ class ArrangementMapComponentSerializer(serializers.ModelSerializer):
     ancestors = ComponentReferenceSerializer(read_only=True, many=True)
     children = ComponentReferenceSerializer(read_only=True, many=True)
     level = serializers.CharField(source='archivesspace_level')
+    ref = serializers.SerializerMethodField()
 
     class Meta:
         model = ArrangementMapComponent
-        fields = ('id', 'title', 'map', 'parent', 'tree_index', 'level',
+        fields = ('ref', 'title', 'map', 'parent', 'tree_index', 'level',
                   'archivesspace_uri', 'publish', 'ancestors', 'children')
+
+    def get_ref(self, obj):
+        return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
 
 
 class ArrangementMapComponentListSerializer(serializers.ModelSerializer):
