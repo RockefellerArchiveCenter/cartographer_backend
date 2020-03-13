@@ -70,10 +70,9 @@ class ArrangementMapViewset(ModelViewSet):
                             username=settings.ASPACE['username'],
                             password=settings.ASPACE['password'])
             for component in ArrangementMapComponent.objects.filter(map=map):
-                resource = aspace.client.get(component.archivespace_uri).json()
+                resource = aspace.client.get(component.archivesspace_uri).json()
                 resource["publish"] = map.publish
-                updated = aspace.client.post(component.archivespace_uri, json=resource)
-                print(updated)
+                updated = aspace.client.post(component.archivesspace_uri, json=resource)
                 updated.raise_for_status()
             return response
         except Exception as e:
