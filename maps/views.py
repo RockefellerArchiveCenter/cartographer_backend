@@ -57,6 +57,27 @@ class ArrangementMapViewset(ModelViewSet):
     """
     model = ArrangementMap
 
+    def update(self, request, pk=None, *args, **kwargs):
+        """Overrides default update method.
+
+        Publishes or unpublishes resource records in ArchivesSpace based on
+        publish attribute of parent ArrangementMap.
+        """
+        response = super(ArrangementMapViewset, self).update(request, *args, **kwargs)
+        try:
+            map = ArrangementMap.objects.get(pk=pk)
+            aspace = ASpace(baseurl=settings.ASPACE['baseurl'],
+                            username=settings.ASPACE['username'],
+                            password=settings.ASPACE['password'])
+            for component in ArrangementMapComponent.objects.filter(map=map):
+                resource = aspace.client.get(component.archivesspace_uri).json()
+                resource["publish"] = map.publish
+                updated = aspace.client.post(component.archivesspace_uri, json=resource)
+                updated.raise_for_status()
+            return response
+        except Exception as e:
+            return Response("Error handling publish action in ArchivesSpace: {}".format(e), status=500)
+
     def get_serializer_class(self):
         if self.action == 'list':
             return ArrangementMapListSerializer

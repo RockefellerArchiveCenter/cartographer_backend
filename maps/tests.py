@@ -1,6 +1,8 @@
 import random
 import string
 
+import vcr
+from cartographer_backend import settings
 from django.test import Client, TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
@@ -12,6 +14,15 @@ from .serializers import (ArrangementMapComponentSerializer,
 from .views import (ArrangementMapComponentViewset, ArrangementMapViewset,
                     FindByURIView)
 
+edit_vcr = vcr.VCR(
+    serializer='json',
+    cassette_library_dir='fixtures/cassettes',
+    record_mode='once',
+    match_on=['path', 'method'],
+    filter_query_parameters=['username', 'password'],
+    filter_headers=['Authorization'],
+)
+
 
 def get_title_string(length=10):
     letters = string.ascii_lowercase
@@ -22,22 +33,20 @@ class CartographerTest(TestCase):
     """Tests the Cartographer backend, with a focus on API interactions."""
 
     def setUp(self):
-        self.map_number = random.randint(2, 10)
-        self.component_number = random.randint(2, 20)
+        self.component_number = 10
         self.client = Client()
         self.factory = APIRequestFactory()
 
     def create_maps(self):
         """Test creation of ArrangementMap objects."""
-        for i in range(self.map_number):
-            request = self.factory.post(
-                reverse('arrangementmap-list'), format="json",
-                data={'title': get_title_string(), 'level': get_title_string(length=5)})
-            response = ArrangementMapViewset.as_view(actions={"post": "create"})(request)
-            self.assertEqual(response.status_code, 201, "Wrong HTTP status code")
-        self.assertEqual(len(ArrangementMap.objects.all()), self.map_number, "Wrong number of instances created")
+        request = self.factory.post(
+            reverse('arrangementmap-list'), format="json",
+            data={'title': get_title_string(), 'level': get_title_string(length=5)})
+        response = ArrangementMapViewset.as_view(actions={"post": "create"})(request)
+        self.assertEqual(response.status_code, 201, "Wrong HTTP status code")
+        self.assertEqual(len(ArrangementMap.objects.all()), 1, "Wrong number of instances created")
         for map in ArrangementMap.objects.all():
-            self.assertEqual(map.publish, False, "Map was set to publish.")
+            self.assertEqual(map.publish, False, "Map was incorrectly set to publish.")
 
     def create_components(self):
         """Tests creation of ArrangementMapComponent objects."""
@@ -48,7 +57,7 @@ class CartographerTest(TestCase):
                 format="json",
                 data={
                     'title': get_title_string(),
-                    'archivesspace_uri': get_title_string(length=15),
+                    'archivesspace_uri': "/repositories/{}/resources/1".format(settings.ASPACE["repo_id"]),
                     'level': random.choice(['collection', 'series', 'subseries']),
                     'map': map.pk})
             response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
@@ -64,20 +73,21 @@ class CartographerTest(TestCase):
         for model, serializer, view, viewset in [
                 (ArrangementMap, ArrangementMapSerializer, "arrangementmap-detail", ArrangementMapViewset),
                 (ArrangementMapComponent, ArrangementMapComponentSerializer, "arrangementmapcomponent-detail", ArrangementMapComponentViewset)]:
-            obj = random.choice(model.objects.all())
-            title = get_title_string(20)
-            obj.title = title
-            serializer = serializer(obj)
-            request = self.factory.put(reverse(view, kwargs={"pk": obj.pk}), format="json", data=serializer.data)
-            response = viewset.as_view(actions={"put": "update"})(request, pk=obj.pk)
-            self.assertEqual(response.status_code, 200, "Error editing {}: {}".format(model, response.data))
-            obj.refresh_from_db()
-            self.assertEqual(title, obj.title, "Title was not updated")
-            self.assertTrue(obj.created < obj.modified, "Modified time was not updated")
+            with edit_vcr.use_cassette("edit-{}.json".format(view)):
+                obj = random.choice(model.objects.all())
+                title = get_title_string(20)
+                obj.title = title
+                serializer = serializer(obj)
+                request = self.factory.put(reverse(view, kwargs={"pk": obj.pk}), format="json", data=serializer.data)
+                response = viewset.as_view(actions={"put": "update"})(request, pk=obj.pk)
+                self.assertEqual(response.status_code, 200, "Error editing {}: {}".format(model, response.data))
+                obj.refresh_from_db()
+                self.assertEqual(title, obj.title, "Title was not updated")
+                self.assertTrue(obj.created < obj.modified, "Modified time was not updated")
 
     def delete_maps(self):
         """Tests deletion of ArrangementMap objects."""
-        delete_number = random.randint(1, self.map_number - 1)
+        delete_number = 1
         for i in range(delete_number):
             map = random.choice(ArrangementMap.objects.all())
             delete_number += len(ArrangementMapComponent.objects.filter(map=map))
