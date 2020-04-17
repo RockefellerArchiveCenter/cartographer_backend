@@ -121,6 +121,7 @@ class CartographerTest(TestCase):
             request = self.factory.get(reverse(view, kwargs={"pk": obj.pk}), format="json")
             response = viewset.as_view(actions={"get": "retrieve"})(request, pk=obj.pk)
             self.assertEqual(response.status_code, 200, "Error in {} detail view: {}".format(model, response.data))
+            self.assertIsNot(response.data.get("id"), None, "`id` key missing from response.")
 
     def delete_feed_view(self):
         """Tests DeleteFeed views."""
