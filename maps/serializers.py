@@ -25,7 +25,7 @@ class ArrangementMapComponentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ArrangementMapComponent
-        fields = ('ref', 'title', 'map', 'parent', 'tree_index', 'level',
+        fields = ('id', 'ref', 'title', 'map', 'parent', 'tree_index', 'level',
                   'archivesspace_uri', 'publish', 'ancestors', 'children')
 
     def get_ref(self, obj):
