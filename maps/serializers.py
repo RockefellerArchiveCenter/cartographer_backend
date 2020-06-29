@@ -8,10 +8,11 @@ from .models import (ArrangementMap, ArrangementMapComponent,
 class ComponentReferenceSerializer(serializers.ModelSerializer):
     ref = serializers.SerializerMethodField()
     level = serializers.CharField(source='archivesspace_level')
+    order = serializers.StringRelatedField(source="tree_index")
 
     class Meta:
         model = ArrangementMapComponent
-        fields = ('ref', 'archivesspace_uri', 'level')
+        fields = ('title', 'ref', 'archivesspace_uri', 'level', 'order')
 
     def get_ref(self, obj):
         return reverse('arrangementmapcomponent-detail', kwargs={'pk': obj.pk})
@@ -22,10 +23,11 @@ class ArrangementMapComponentSerializer(serializers.ModelSerializer):
     children = ComponentReferenceSerializer(read_only=True, many=True)
     level = serializers.CharField(source='archivesspace_level')
     ref = serializers.SerializerMethodField()
+    order = serializers.StringRelatedField(source="tree_index")
 
     class Meta:
         model = ArrangementMapComponent
-        fields = ('id', 'ref', 'title', 'map', 'parent', 'tree_index', 'level',
+        fields = ('id', 'ref', 'title', 'map', 'parent', 'order', 'level',
                   'archivesspace_uri', 'publish', 'ancestors', 'children')
 
     def get_ref(self, obj):
@@ -53,11 +55,11 @@ class ArrangementMapSerializer(serializers.ModelSerializer):
             if item.is_leaf_node():
                 tree.append({'id': item.pk, 'title': item.title, 'ref': ref, 'level': item.archivesspace_level,
                              'parent': parent, 'archivesspace_uri': item.archivesspace_uri,
-                             'tree_index': item.tree_index})
+                             'order': item.tree_index})
             else:
                 tree.append({'id': item.pk, 'title': item.title, 'ref': ref, 'level': item.archivesspace_level,
                              'parent': parent, 'archivesspace_uri': item.archivesspace_uri,
-                             'tree_index': item.tree_index, 'children': []})
+                             'order': item.tree_index, 'children': []})
                 self.process_tree_item(item.children.all().order_by('tree_index'), tree[-1].get('children'))
         return tree
 
