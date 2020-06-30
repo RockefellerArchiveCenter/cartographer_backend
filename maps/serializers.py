@@ -91,4 +91,4 @@ class DeletedArrangementMapSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DeletedArrangementMap
-        fields = ('ref', 'deleted')
+        fields = ('ref', 'archivesspace_uri', 'deleted')
