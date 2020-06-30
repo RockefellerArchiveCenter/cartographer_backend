@@ -15,7 +15,8 @@ def create_deleted_map(sender, instance, **kwargs):
 @receiver(pre_delete, sender=ArrangementMapComponent)
 def create_deleted_component(sender, instance, **kwargs):
     DeletedArrangementMap.objects.create(
-        ref=reverse('arrangementmapcomponent-detail', kwargs={'pk': instance.pk}))
+        ref=reverse('arrangementmapcomponent-detail', kwargs={'pk': instance.pk}),
+        archivesspace_uri=instance.archivesspace_uri)
 
 
 @receiver([post_save, pre_delete], sender=ArrangementMapComponent)
