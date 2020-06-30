@@ -47,4 +47,5 @@ class ArrangementMapComponent(MPTTModel):
 
 class DeletedArrangementMap(models.Model):
     ref = models.CharField(max_length=100)
+    archivesspace_uri = models.CharField(max_length=255, blank=True, null=True)
     deleted = models.DateTimeField(auto_now_add=True)
