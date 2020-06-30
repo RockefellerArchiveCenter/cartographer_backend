@@ -128,6 +128,10 @@ class CartographerTest(TestCase):
         response = self.client.get(reverse('delete-feed'), format="json")
         self.assertEqual(response.status_code, 200, "Wrong HTTP status code")
         self.assertTrue(response.data['count'] > 0, "No deleted instances")
+        for obj in response.data["results"]:
+            self.assertIsNot(obj.get("ref"), None)
+            if "components" in obj.get("ref"):
+                self.assertIsNot(obj.get("archivesspace_uri"), None)
         time_response = self.client.get(
             '{}?deleted_since={}'.format(reverse('delete-feed'), random.randint(1500000000, 2500000000)),
             format="json")
