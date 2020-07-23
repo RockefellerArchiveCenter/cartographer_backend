@@ -8,7 +8,7 @@ from .models import (ArrangementMap, ArrangementMapComponent,
 class ComponentReferenceSerializer(serializers.ModelSerializer):
     ref = serializers.SerializerMethodField()
     level = serializers.CharField(source='archivesspace_level')
-    order = serializers.StringRelatedField(source="tree_index")
+    order = serializers.IntegerField(source="tree_index")
 
     class Meta:
         model = ArrangementMapComponent
@@ -22,8 +22,8 @@ class ArrangementMapComponentSerializer(serializers.ModelSerializer):
     ancestors = ComponentReferenceSerializer(read_only=True, many=True)
     children = ComponentReferenceSerializer(read_only=True, many=True)
     level = serializers.CharField(source='archivesspace_level')
+    order = serializers.IntegerField(source='tree_index')
     ref = serializers.SerializerMethodField()
-    order = serializers.StringRelatedField(source="tree_index")
 
     class Meta:
         model = ArrangementMapComponent
