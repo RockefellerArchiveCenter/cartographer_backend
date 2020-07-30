@@ -32,7 +32,7 @@ def process_params(view):
     """
     modified_since = int(view.request.query_params.get('modified_since', 0))
     queryset = view.model.objects.filter(
-        modified__gte=make_aware(datetime.fromtimestamp(modified_since))).order_by('-modified')
+        modified__gte=make_aware(datetime.fromtimestamp(modified_since))).order_by('title')
     if 'published' in view.request.query_params:
         try:
             queryset.exclude(publish=False)
