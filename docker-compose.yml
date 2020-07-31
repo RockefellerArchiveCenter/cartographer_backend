@@ -11,7 +11,7 @@ services:
       - POSTGRES_DB=cartographer_backend_dev
   cartographer-backend:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: apachectl -D FOREGROUND
     volumes:
       - .:/code/cartographer_backend
     ports:
