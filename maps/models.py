@@ -36,7 +36,7 @@ class ArrangementMapComponent(MPTTModel):
         queryset |= ArrangementMapComponent.objects.filter(pk=parent.pk)
         if parent.parent:
             return self.process_ancestors(parent.parent, queryset)
-        return queryset
+        return queryset.reverse()
 
     @property
     def ancestors(self):
