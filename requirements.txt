@@ -62,9 +62,7 @@ pyyaml==5.3
 rapidfuzz==1.4.1
     # via archivessnake
 requests==2.25.1
-    # via
-    #   -r requirements.in
-    #   archivessnake
+    # via archivessnake
 six==1.14.0
     # via
     #   structlog
