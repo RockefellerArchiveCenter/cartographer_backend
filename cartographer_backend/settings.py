@@ -76,6 +76,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cartographer_backend.wsgi.application'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
