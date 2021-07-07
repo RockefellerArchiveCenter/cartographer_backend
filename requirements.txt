@@ -27,9 +27,7 @@ django==2.2.10
 django-cors-headers==3.7.0
     # via -r requirements.in
 django-js-asset==1.2.2
-    # via
-    #   -r requirements.in
-    #   django-mptt
+    # via django-mptt
 django-mptt==0.12.0
     # via -r requirements.in
 djangorestframework==3.12.4
@@ -40,8 +38,6 @@ gitdb2==2.0.6
     # via gitpython
 gitpython==3.0.7
     # via health-check
-gunicorn==20.1.0
-    # via -r requirements.in
 health-check==3.4.1
     # via -r requirements.in
 idna==2.8
@@ -91,6 +87,3 @@ wrapt==1.12.1
     # via vcrpy
 yarl==1.6.3
     # via vcrpy
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
