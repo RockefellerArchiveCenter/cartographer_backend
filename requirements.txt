@@ -71,13 +71,9 @@ sqlparse==0.3.0
     # via django
 structlog==20.1.0
     # via archivessnake
-typing-extensions==3.10.0.0
-    # via
-    #   asgiref
-    #   yarl
 uritemplate==3.0.1
     # via -r requirements.in
-urllib3==1.25.8
+urllib3==1.26.5
     # via requests
 vcrpy==4.0.2
     # via -r requirements.in
