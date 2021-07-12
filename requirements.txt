@@ -52,7 +52,7 @@ psycopg2-binary==2.9.1
     # via -r requirements.in
 pytz==2019.3
     # via django
-pyyaml==5.3
+pyyaml==5.4
     # via
     #   archivessnake
     #   health-check
@@ -71,10 +71,6 @@ sqlparse==0.3.0
     # via django
 structlog==20.1.0
     # via archivessnake
-typing-extensions==3.10.0.0
-    # via
-    #   asgiref
-    #   yarl
 uritemplate==3.0.1
     # via -r requirements.in
 urllib3==1.25.8
