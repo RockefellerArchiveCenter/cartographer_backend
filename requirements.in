@@ -6,4 +6,4 @@ djangorestframework==3.12.4
 health-check==3.4.1
 psycopg2-binary==2.9.1
 uritemplate==3.0.1
-vcrpy==4.0.2
+vcrpy==4.1.1
