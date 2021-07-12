@@ -14,6 +14,6 @@ install:
 script:
   - docker-compose exec $CONTAINER pre-commit run --all-files --show-diff-on-failure
   - docker-compose exec $CONTAINER coverage run manage.py test
-  - docker-compose exec web $CONTAINER report -m
+  - docker-compose exec $CONTAINER coverage report -m
 notifications:
   email: false
