@@ -1,6 +1,6 @@
 ArchivesSnake==0.9.1
 Django==3.2.5
-django-cors-headers==3.7.0
+django-cors-headers==3.8.0
 django-mptt==0.12.0
 djangorestframework==3.12.4
 health-check==3.4.1
