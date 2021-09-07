@@ -20,17 +20,16 @@ clinner==1.12.3
     # via health-check
 colorlog==3.2.0
     # via clinner
-django==3.2.5
+django==3.2.7
     # via
     #   -r requirements.in
     #   django-cors-headers
-    #   django-mptt
     #   djangorestframework
-django-cors-headers==3.7.0
+django-cors-headers==3.8.0
     # via -r requirements.in
 django-js-asset==1.2.2
     # via django-mptt
-django-mptt==0.12.0
+django-mptt==0.13.2
     # via -r requirements.in
 djangorestframework==3.12.4
     # via -r requirements.in
