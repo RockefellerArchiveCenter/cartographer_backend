@@ -495,6 +495,165 @@
                     "string": "{\"child_count\":1,\"waypoints\":1,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/resources/1\",\"slugged_url\":\"\",\"jsonmodel_type\":\"resource\",\"parsed_title\":\"Stacy May papers, office files\",\"level\":\"Accession\",\"precomputed_waypoints\":{\"\":{\"0\":[{\"child_count\":0,\"waypoints\":0,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"slugged_url\":\"\",\"parsed_title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/archival_objects/1\",\"position\":0,\"parent_id\":null,\"jsonmodel_type\":\"archival_object\",\"level\":\"Accession\",\"dates\":[{\"type\":\"inclusive\",\"label\":\"creation\",\"expression\":\"1947-1962\",\"begin\":\"1947\",\"end\":\"1962\"},{\"type\":\"bulk\",\"label\":\"creation\",\"begin\":\"1950\",\"end\":\"1962\"}]}]}}}\n"
                 }
             }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "uri": "http://as.rockarch.org:8089/repositories/2/resources/1/tree/root",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "ArchivesSnake/0.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "application/json"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "X-ArchivesSpace-Session": [
+                        "8ef68ee4ede928665ad0a27a4747eb998b10908d2790e0c420c5a06cdc6d06fd"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "731"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "Date": [
+                        "Tue, 14 Sep 2021 23:44:37 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ]
+                },
+                "body": {
+                    "string": "{\"child_count\":1,\"waypoints\":1,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/resources/1\",\"slugged_url\":\"\",\"jsonmodel_type\":\"resource\",\"parsed_title\":\"Stacy May papers, office files\",\"level\":\"Accession\",\"precomputed_waypoints\":{\"\":{\"0\":[{\"child_count\":0,\"waypoints\":0,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"slugged_url\":\"\",\"parsed_title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/archival_objects/1\",\"position\":0,\"parent_id\":null,\"jsonmodel_type\":\"archival_object\",\"level\":\"Accession\",\"dates\":[{\"type\":\"inclusive\",\"label\":\"creation\",\"expression\":\"1947-1962\",\"begin\":\"1947\",\"end\":\"1962\"},{\"type\":\"bulk\",\"label\":\"creation\",\"begin\":\"1950\",\"end\":\"1962\"}]}]}}}\n"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "uri": "http://as.rockarch.org:8089/repositories/2/resources/1/tree/root",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "ArchivesSnake/0.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "application/json"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "X-ArchivesSpace-Session": [
+                        "8ef68ee4ede928665ad0a27a4747eb998b10908d2790e0c420c5a06cdc6d06fd"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "731"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "Date": [
+                        "Tue, 14 Sep 2021 23:44:37 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ]
+                },
+                "body": {
+                    "string": "{\"child_count\":1,\"waypoints\":1,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/resources/1\",\"slugged_url\":\"\",\"jsonmodel_type\":\"resource\",\"parsed_title\":\"Stacy May papers, office files\",\"level\":\"Accession\",\"precomputed_waypoints\":{\"\":{\"0\":[{\"child_count\":0,\"waypoints\":0,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"slugged_url\":\"\",\"parsed_title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/archival_objects/1\",\"position\":0,\"parent_id\":null,\"jsonmodel_type\":\"archival_object\",\"level\":\"Accession\",\"dates\":[{\"type\":\"inclusive\",\"label\":\"creation\",\"expression\":\"1947-1962\",\"begin\":\"1947\",\"end\":\"1962\"},{\"type\":\"bulk\",\"label\":\"creation\",\"begin\":\"1950\",\"end\":\"1962\"}]}]}}}\n"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "uri": "http://as.rockarch.org:8089/repositories/2/resources/1/tree/root",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "ArchivesSnake/0.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "application/json"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "X-ArchivesSpace-Session": [
+                        "8ef68ee4ede928665ad0a27a4747eb998b10908d2790e0c420c5a06cdc6d06fd"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "731"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ],
+                    "Date": [
+                        "Tue, 14 Sep 2021 23:44:37 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ]
+                },
+                "body": {
+                    "string": "{\"child_count\":1,\"waypoints\":1,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/resources/1\",\"slugged_url\":\"\",\"jsonmodel_type\":\"resource\",\"parsed_title\":\"Stacy May papers, office files\",\"level\":\"Accession\",\"precomputed_waypoints\":{\"\":{\"0\":[{\"child_count\":0,\"waypoints\":0,\"waypoint_size\":200,\"title\":\"Stacy May papers, office files\",\"slugged_url\":\"\",\"parsed_title\":\"Stacy May papers, office files\",\"uri\":\"/repositories/2/archival_objects/1\",\"position\":0,\"parent_id\":null,\"jsonmodel_type\":\"archival_object\",\"level\":\"Accession\",\"dates\":[{\"type\":\"inclusive\",\"label\":\"creation\",\"expression\":\"1947-1962\",\"begin\":\"1947\",\"end\":\"1962\"},{\"type\":\"bulk\",\"label\":\"creation\",\"begin\":\"1950\",\"end\":\"1962\"}]}]}}}\n"
+                }
+            }
         }
     ]
 }
