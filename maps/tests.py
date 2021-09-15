@@ -149,6 +149,15 @@ class CartographerTest(TestCase):
             response.data["count"] >= 1,
             "Response count is {}, should have been at least 1".format(response.data["count"]))
 
+    def objects_before_view(self):
+        """Tests objects_before action view"""
+        with edit_vcr.use_cassette("objects-before.json"):
+            obj = random.choice(ArrangementMapComponent.objects.all())
+            request = self.factory.get(reverse("arrangementmapcomponent-objects-before", args=[obj.pk]), format="json")
+            response = ArrangementMapComponentViewset.as_view(actions={"get": "objects_before"})(request, pk=obj.pk)
+            self.assertEqual(response.status_code, 200, "Error in objects_before action view: {}".format(response.data))
+            self.assertTrue(isinstance(response.data["count"], int))
+
     def schema(self):
         """Tests OpenAPI schema view."""
         schema = self.client.get(reverse('schema'))
@@ -161,6 +170,7 @@ class CartographerTest(TestCase):
         self.list_views()
         self.detail_views()
         self.find_by_uri_view()
+        self.objects_before_view()
         self.delete_maps()
         self.delete_feed_view()
         self.schema()
