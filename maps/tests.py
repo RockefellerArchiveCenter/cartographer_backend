@@ -57,31 +57,30 @@ class CartographerTest(TestCase):
                 format="json",
                 data={
                     'title': get_title_string(),
-                    'archivesspace_uri': "/repositories/{}/resources/1".format(settings.ASPACE["repo_id"]),
+                    'archivesspace_uri': f"/repositories/{settings.ASPACE['repo_id']}/resources/1",
                     'level': random.choice(['collection', 'series', 'subseries']),
                     'map': map.pk,
                     'order': i})
             response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
-            self.assertEqual(response.status_code, 201, "Error creating component: {}".format(response.data))
+            self.assertEqual(response.status_code, 201, "Error creating component: {response.data}")
         self.assertEqual(
             len(ArrangementMapComponent.objects.all()),
             self.component_number,
-            "Expecting {} ArrangementMapComponent objects but got {}".format(
-                self.component_number, len(ArrangementMapComponent.objects.all())))
+            f"Expecting {self.component_number} ArrangementMapComponent objects but got {len(ArrangementMapComponent.objects.all())}")
 
     def edit_objects(self):
         """Tests editing of ArrangementMap objects."""
         for model, serializer, view, viewset in [
                 (ArrangementMap, ArrangementMapSerializer, "arrangementmap-detail", ArrangementMapViewset),
                 (ArrangementMapComponent, ArrangementMapComponentSerializer, "arrangementmapcomponent-detail", ArrangementMapComponentViewset)]:
-            with edit_vcr.use_cassette("edit-{}.json".format(view)):
+            with edit_vcr.use_cassette(f"edit-{view}.json"):
                 obj = random.choice(model.objects.all())
                 title = get_title_string(20)
                 obj.title = title
                 serializer = serializer(obj)
                 request = self.factory.put(reverse(view, kwargs={"pk": obj.pk}), format="json", data=serializer.data)
                 response = viewset.as_view(actions={"put": "update"})(request, pk=obj.pk)
-                self.assertEqual(response.status_code, 200, "Error editing {}: {}".format(model, response.data))
+                self.assertEqual(response.status_code, 200, f"Error editing {model}: {response.data}")
                 obj.refresh_from_db()
                 self.assertEqual(title, obj.title, "Title was not updated")
                 self.assertTrue(obj.created < obj.modified, "Modified time was not updated")
@@ -92,7 +91,7 @@ class CartographerTest(TestCase):
         for i in range(delete_number):
             map = random.choice(ArrangementMap.objects.all())
             delete_number += len(ArrangementMapComponent.objects.filter(map=map))
-            request = self.factory.delete(reverse('arrangementmap-detail', kwargs={"pk": map.pk}), format="json")
+            request = self.factory.delete(reverse("arrangementmap-detail", kwargs={"pk": map.pk}), format="json")
             response = ArrangementMapViewset.as_view(actions={"delete": "destroy"})(request, pk=map.pk)
             self.assertEqual(response.status_code, 204, "Wrong HTTP status code")
         self.assertEqual(
@@ -105,13 +104,13 @@ class CartographerTest(TestCase):
         for view, viewset in [('arrangementmap-list', ArrangementMapViewset), ('arrangementmapcomponent-list', ArrangementMapComponentViewset)]:
             request = self.factory.get(reverse(view), format="json")
             response = viewset.as_view(actions={"get": "list"})(request)
-            self.assertEqual(response.status_code, 200, "Request error: {}".format(response.data))
-            request = self.factory.get('{}?modified_since={}'.format(reverse(view), random.randint(1500000000, 2500000000)), format="json")
+            self.assertEqual(response.status_code, 200, f"Request error: {response.data}")
+            request = self.factory.get(f'{reverse(view)}?modified_since={random.randint(1500000000, 2500000000)}', format="json")
             response = viewset.as_view(actions={"get": "list"})(request)
-            self.assertEqual(response.status_code, 200, "Request error: {}".format(response.data))
-            request = self.factory.get('{}?published'.format(reverse(view)), format="json")
+            self.assertEqual(response.status_code, 200, f"Request error: {response.data}")
+            request = self.factory.get(f'{view}?published', format="json")
             response = viewset.as_view(actions={"get": "list"})(request)
-            self.assertEqual(response.status_code, 200, "Request error: {}".format(response.data))
+            self.assertEqual(response.status_code, 200, f"Request error: {response.data}")
 
     def detail_views(self):
         """Tests detail views for ArrangementMap and ArrangementMapComponent objects."""
@@ -121,7 +120,7 @@ class CartographerTest(TestCase):
             obj = random.choice(model.objects.all())
             request = self.factory.get(reverse(view, kwargs={"pk": obj.pk}), format="json")
             response = viewset.as_view(actions={"get": "retrieve"})(request, pk=obj.pk)
-            self.assertEqual(response.status_code, 200, "Error in {} detail view: {}".format(model, response.data))
+            self.assertEqual(response.status_code, 200, f"Error in {model} detail view: {response.data}")
             self.assertIsNot(response.data.get("id"), None, "`id` key missing from response.")
 
     def delete_feed_view(self):
@@ -134,7 +133,7 @@ class CartographerTest(TestCase):
             if "components" in obj.get("ref"):
                 self.assertIsNot(obj.get("archivesspace_uri"), None)
         time_response = self.client.get(
-            '{}?deleted_since={}'.format(reverse('delete-feed'), random.randint(1500000000, 2500000000)),
+            f"{reverse('delete-feed')}?deleted_since={random.randint(1500000000, 2500000000)}",
             format="json")
         self.assertEqual(time_response.status_code, 200, "Wrong HTTP status code")
 
@@ -142,12 +141,12 @@ class CartographerTest(TestCase):
         """Tests FindByURIView."""
         map = random.choice(ArrangementMapComponent.objects.all())
         uri = map.archivesspace_uri
-        request = self.factory.get("{}?uri={}".format(reverse('find-by-uri'), uri), format="json")
+        request = self.factory.get(f"{reverse('find-by-uri')}?uri={uri}", format="json")
         response = FindByURIView.as_view()(request)
-        self.assertEqual(response.status_code, 200, "FindByURI error: {}".format(response.data))
+        self.assertEqual(response.status_code, 200, f"FindByURI error: {response.data}")
         self.assertTrue(
             response.data["count"] >= 1,
-            "Response count is {}, should have been at least 1".format(response.data["count"]))
+            f"Response count is {response.data['count']}, should have been at least 1")
 
     def objects_before_view(self):
         """Tests objects_before action view"""
@@ -155,7 +154,7 @@ class CartographerTest(TestCase):
             obj = random.choice(ArrangementMapComponent.objects.all())
             request = self.factory.get(reverse("arrangementmapcomponent-objects-before", args=[obj.pk]), format="json")
             response = ArrangementMapComponentViewset.as_view(actions={"get": "objects_before"})(request, pk=obj.pk)
-            self.assertEqual(response.status_code, 200, "Error in objects_before action view: {}".format(response.data))
+            self.assertEqual(response.status_code, 200, f"Error in objects_before action view: {response.data}")
             self.assertTrue(isinstance(response.data["count"], int))
 
     def schema(self):

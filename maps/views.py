@@ -78,7 +78,7 @@ class ArrangementMapViewset(ModelViewSet):
                 updated.raise_for_status()
             return response
         except Exception as e:
-            return Response("Error handling publish action in ArchivesSpace: {}".format(e), status=500)
+            return Response(f"Error handling publish action in ArchivesSpace: {e}", status=500)
 
     def get_serializer_class(self):
         if self.action == 'list':
