@@ -4,7 +4,9 @@ from asnake.aspace import ASpace
 from asnake.jsonmodel import JSONModelObject
 from cartographer_backend import settings
 from django.core.exceptions import FieldError
+from django.shortcuts import get_object_or_404
 from django.utils.timezone import make_aware
+from rest_framework.decorators import action
 from rest_framework.exceptions import ParseError
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
@@ -111,6 +113,27 @@ class ArrangementMapComponentViewset(ModelViewSet):
 
     def get_queryset(self):
         return process_params(self)
+
+    @action(detail=True)
+    def objects_before(self, request, pk=None):
+        """Returns the total number of objects before the target component.
+
+        Fetches the child count for resource records from ArchivesSpace.
+        """
+        obj = get_object_or_404(ArrangementMapComponent, pk=pk)
+        try:
+            aspace = ASpace(baseurl=settings.ASPACE['baseurl'],
+                            username=settings.ASPACE['username'],
+                            password=settings.ASPACE['password'])
+            previous_components = ArrangementMapComponent.objects.filter(
+                map=obj.map, tree_index__lt=obj.tree_index)
+            count = len(previous_components)
+            for component in previous_components:
+                resource = aspace.client.get(f"{component.archivesspace_uri}/tree/root").json()
+                count += resource["child_count"]
+            return Response({"count": count}, status=200)
+        except Exception as e:
+            return Response(str(e), status=500)
 
 
 class DeletedArrangementMapView(ListAPIView):
