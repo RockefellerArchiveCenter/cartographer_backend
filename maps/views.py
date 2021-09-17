@@ -129,8 +129,10 @@ class ArrangementMapComponentViewset(ModelViewSet):
                 map=obj.map, tree_index__lt=obj.tree_index)
             count = len(previous_components)
             for component in previous_components:
-                resource = aspace.client.get(f"{component.archivesspace_uri}/tree/root").json()
-                count += resource["child_count"]
+                escaped_uri = component.archivesspace_uri.replace('/', r'\/')
+                search_uri = f"search?q=resource:/{escaped_uri}/ AND publish:true&page=1&fields[]=uri&type[]=archival_object&page_size=1"
+                resource = aspace.client.get(search_uri).json()
+                count += resource["total_hits"]
             return Response({"count": count}, status=200)
         except Exception as e:
             return Response(str(e), status=500)
@@ -177,7 +179,7 @@ class ResourceFetcherView(APIView):
 
 class FindByURIView(ListAPIView):
     """Returns all ArrangementMapComponent objects whose `archivesspace_uri`
-    property matches a sumitted URI.
+    property matches a submitted URI.
 
     Params:
         uri (str): an ArchivesSpace URI
