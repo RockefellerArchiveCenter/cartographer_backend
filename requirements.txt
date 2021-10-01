@@ -29,7 +29,7 @@ django-cors-headers==3.8.0
     # via -r requirements.in
 django-js-asset==1.2.2
     # via django-mptt
-django-mptt==0.13.2
+django-mptt==0.13.4
     # via -r requirements.in
 djangorestframework==3.12.4
     # via -r requirements.in
@@ -70,12 +70,6 @@ sqlparse==0.4.2
     # via django
 structlog==21.1.0
     # via archivessnake
-typing-extensions==3.10.0.2
-    # via
-    #   asgiref
-    #   gitpython
-    #   structlog
-    #   yarl
 uritemplate==3.0.1
     # via -r requirements.in
 urllib3==1.26.6
