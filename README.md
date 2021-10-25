@@ -4,7 +4,7 @@ An Django application which provides a backend API to manage JSON tree represent
 
 cartographer_backend is part of [Project Electron](https://github.com/RockefellerArchiveCenter/project_electron), an initiative to build sustainable, open and user-centered infrastructure for the archival management of digital records at the [Rockefeller Archive Center](http://rockarch.org/).
 
-[![Build Status](https://travis-ci.org/RockefellerArchiveCenter/cartographer_backend.svg?branch=master)](https://travis-ci.org/RockefellerArchiveCenter/cartographer_backend)
+[![Build Status](https://travis-ci.org/RockefellerArchiveCenter/cartographer_backend.svg?branch=base)](https://travis-ci.org/RockefellerArchiveCenter/cartographer_backend)
 
 ## Local Development
 
@@ -50,10 +50,6 @@ CORS_ORIGIN_WHITELIST=http://localhost:3000  # A list of hosts that are allowed 
 
 You can either provide these variables on the command line or in an [env file](https://docs.docker.com/compose/env-file/).
 
-## Docker Image
-
-Every time a commit is pushed to GitHub in the master branch, this repository builds a [Docker image](https://hub.docker.com/repository/docker/rockarch/cartographer_backend) in Docker Hub.
-
 
 ### Routes
 
@@ -63,6 +59,12 @@ Every time a commit is pushed to GitHub in the master branch, this repository bu
 |GET|/delete-feed|`deleted_since` - returns only maps deleted since the time provided (as a Unix timestamp)|200|Returns a list of deleted maps, ordered by most recent first|
 |GET|/status||200|Returns the status of the application|
 |GET|/schema.json||200|Returns the OpenAPI schema for this application|
+
+
+## Development
+
+This repository contains a configuration file for git [pre-commit](https://pre-commit.com/) hooks which help ensure that code is linted before it is checked into version control. It is strongly recommended that you install these hooks locally by installing pre-commit and running `pre-commit install`.
+
 
 ## License
 
