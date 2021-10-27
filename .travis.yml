@@ -1,19 +1,24 @@
 language: python
-sudo: required
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/.cache/pre-commit
 services:
   - docker
 env:
-  - CONTAINER: cartographer-backend
+  global:
+    - CONTAINER: cartographer-backend
+    - DJANGO_PORT: 8000
 before_install:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker-compose up -d
-  - sleep 20s
 install:
-  - docker-compose exec $CONTAINER pip install coverage pre-commit
-  - docker-compose exec $CONTAINER pre-commit install
+  - ./wait-for-it.sh $CONTAINER:$DJANGO_PORT -- docker-compose exec $CONTAINER pip install coverage
+  - pip install pre-commit && pre-commit install
 script:
-  - docker-compose exec $CONTAINER pre-commit run --all-files --show-diff-on-failure
+  - pre-commit run --all-files --show-diff-on-failure
   - docker-compose exec $CONTAINER coverage run manage.py test
-  - docker-compose exec $CONTAINER coverage report -m
+after_script:
+  - docker-compose exec $CONTAINER coverage report --omit=*/migrations/* -m
 notifications:
   email: false
