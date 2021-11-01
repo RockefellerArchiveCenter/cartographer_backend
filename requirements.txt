@@ -20,7 +20,7 @@ clinner==1.12.3
     # via health-check
 colorlog==3.2.0
     # via clinner
-django==3.2.7
+django==3.2.8
     # via
     #   -r requirements.in
     #   django-cors-headers
@@ -68,12 +68,6 @@ sqlparse==0.4.2
     # via django
 structlog==21.2.0
     # via archivessnake
-typing-extensions==3.10.0.2
-    # via
-    #   asgiref
-    #   gitpython
-    #   structlog
-    #   yarl
 uritemplate==3.0.1
     # via -r requirements.in
 urllib3==1.26.7
