@@ -44,7 +44,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
   application: ${APPLICATION_NAME}
-  deployment_group: CartographerProduction
+  deployment_group: CartographerBackendProduction
   region: us-east-1
   on:
     repo: RockefellerArchiveCenter/${APPLICATION_NAME}
