@@ -1,21 +1,14 @@
 #!/bin/bash
 
-if [ ! -f manage.py ]; then
-  cd cartographer_backend
+# Create config.py if it doesn't exist
+if [ ! -f cartographer_backend/config.py ]; then
+    echo "Creating config file"
+    cp cartographer_backend/config.py.example cartographer_backend/config.py
 fi
 
-echo "Waiting for postgres..."
-
-while ! nc -z $SQL_HOST $SQL_PORT; do
-  sleep 0.1
-done
-
-echo "PostgreSQL started"
-
-# apply database migrations
+./wait-for-it.sh db:5432 -- echo "Apply database migrations"
 python manage.py migrate
 
-# collect static files
-python manage.py collectstatic --no-input --clear
-
-exec "$@"
+#Start server
+echo "Starting server"
+python manage.py runserver 0.0.0.0:8000
