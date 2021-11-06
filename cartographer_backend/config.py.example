@@ -1,0 +1,14 @@
+DJANGO_DEBUG = 1  # run Django in debug mode, which outputs stack traces to the UI, set to False for production (1 for True, 0 for False)
+DJANGO_SECRET_KEY = "^6yxvs8k9czbwt9o8!y^ay)$l4^*9d(eykpo8%u5)-js9n6wfk"  # used by Django to create hashes
+DJANGO_ALLOWED_HOSTS = ['cartographer-backend', 'localhost']  # hosts Django will respond to (list of strings)
+DJANGO_CORS_ALLOWED_ORIGINS = ['http://localhost:3000']  # Allowed hosts (list of strings)
+SQL_ENGINE = "django.db.backends.postgresql"  # the database engine used by the application (one of django.db.backends)
+SQL_DATABASE = "postgres" # name of the application database
+SQL_USER = "postgres"  # name of the application database user
+SQL_PASSWORD = "postgres"  # password for the application database
+SQL_HOST = "cartographer-db"  # host for the application database
+SQL_PORT = 5432  # port on which the application database can be reached
+AS_BASEURL = "http://as.rockarch.org:8089/"  # base URL for an ArchivesSpace API instance
+AS_USERNAME = "admin"  # username for an ArchivesSpace user (read-only credentials required)
+AS_PASSWORD = "admin"  # password for the ArchivesSpace user
+AS_REPO_ID = 2  # identifier for an ArchivesSpace repository
