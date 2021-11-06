@@ -8,8 +8,10 @@ services:
 env:
   global:
     - CONTAINER: cartographer-backend
+    - APPLICATION_NAME: cartographer
     - DJANGO_PORT: 8000
 before_install:
+  - cp ${APPLICATION_NAME}/config.py.example ${APPLICATION_NAME}/config.py
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker-compose up -d
 install:
@@ -20,5 +22,32 @@ script:
   - docker-compose exec $CONTAINER coverage run manage.py test
 after_script:
   - docker-compose exec $CONTAINER coverage report --omit=*/migrations/* -m
+before_deploy:
+  - deploy_scripts/substitute_env.sh
+  - deploy_scripts/make_zip.sh $DEPLOY_ZIP_DIR $DEPLOY_ZIP_NAME
+deploy:
+- provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  local_dir: $DEPLOY_ZIP_DIR
+  skip_cleanup: true
+  on:
+    repo: RockefellerArchiveCenter/${APPLICATION_NAME}
+    branch: base
+  bucket: $AWS_BUCKET_NAME
+  region: us-east-1
+- provider: codedeploy
+  wait_until_deployed: false
+  bucket: $AWS_BUCKET_NAME
+  key: $DEPLOY_ZIP_NAME
+  bundle_type: zip
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  application: ${APPLICATION_NAME}
+  deployment_group: CartographerProduction
+  region: us-east-1
+  on:
+    repo: RockefellerArchiveCenter/${APPLICATION_NAME}
+    branch: base
 notifications:
   email: false
