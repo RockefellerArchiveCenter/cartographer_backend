@@ -8,7 +8,7 @@ services:
 env:
   global:
     - CONTAINER: cartographer-backend
-    - APPLICATION_NAME: cartographer
+    - APPLICATION_NAME: cartographer_backend
     - DJANGO_PORT: 8000
 before_install:
   - cp ${APPLICATION_NAME}/config.py.example ${APPLICATION_NAME}/config.py
