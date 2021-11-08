@@ -20,11 +20,10 @@ install:
 script:
   - pre-commit run --all-files --show-diff-on-failure
   - docker-compose exec $CONTAINER coverage run manage.py test
-after_script:
   - docker-compose exec $CONTAINER coverage report --omit=*/migrations/* -m
 before_deploy:
-  - deploy_scripts/substitute_env.sh
-  - deploy_scripts/make_zip.sh $DEPLOY_ZIP_DIR $DEPLOY_ZIP_NAME
+  - sudo deploy_scripts/substitute_env.sh
+  - sudo deploy_scripts/make_zip.sh $DEPLOY_ZIP_DIR $DEPLOY_ZIP_NAME
 deploy:
 - provider: s3
   access_key_id: $AWS_ACCESS_KEY
