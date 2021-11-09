@@ -20,7 +20,7 @@ clinner==1.12.3
     # via health-check
 colorlog==3.2.0
     # via clinner
-django==3.2.7
+django==3.2.9
     # via
     #   -r requirements.in
     #   django-cors-headers
@@ -56,7 +56,7 @@ pyyaml==6.0
     #   archivessnake
     #   health-check
     #   vcrpy
-rapidfuzz==1.8.1
+rapidfuzz==1.8.2
     # via archivessnake
 requests==2.26.0
     # via archivessnake
@@ -74,13 +74,13 @@ typing-extensions==3.10.0.2
     #   gitpython
     #   structlog
     #   yarl
-uritemplate==3.0.1
+uritemplate==4.1.1
     # via -r requirements.in
 urllib3==1.26.7
     # via requests
 vcrpy==4.1.1
     # via -r requirements.in
-wrapt==1.13.2
+wrapt==1.13.3
     # via vcrpy
-yarl==1.7.0
+yarl==1.7.2
     # via vcrpy
