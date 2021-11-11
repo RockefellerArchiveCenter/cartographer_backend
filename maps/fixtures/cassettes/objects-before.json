@@ -4,7 +4,7 @@
         {
             "request": {
                 "method": "POST",
-                "uri": "http://as.rockarch.org:8089/users/admin/login",
+                "uri": "https://as.rockarch.org/api/users/admin/login",
                 "body": "password=admin&expiring=False",
                 "headers": {
                     "User-Agent": [
@@ -60,7 +60,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/version",
+                "uri": "https://as.rockarch.org/api/version",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -128,7 +128,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -181,7 +181,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -234,7 +234,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -287,7 +287,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -340,7 +340,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -393,7 +393,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -446,7 +446,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -499,7 +499,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -552,7 +552,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
@@ -605,7 +605,7 @@
         {
             "request": {
                 "method": "GET",
-                "uri": "http://as.rockarch.org:8089/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
                 "body": null,
                 "headers": {
                     "User-Agent": [
