@@ -161,6 +161,16 @@ class CartographerTest(TestCase):
             self.assertEqual(response.status_code, 200, f"Error in objects_before action view: {response.data}")
             self.assertTrue(isinstance(response.data["count"], int))
 
+    def test_resource_fetcher_view(self):
+        """Tests ResourceFetcherView."""
+        with edit_vcr.use_cassette("resource-fetcher.json"):
+            found = self.client.get(reverse("fetch-resource", kwargs={"resource_id": 1}))
+            self.assertEqual(found.status_code, 200)
+            self.assertTrue(isinstance(found.json(), dict))
+            not_found = self.client.get(reverse("fetch-resource", kwargs={"resource_id": 12345}))
+            self.assertEqual(not_found.status_code, 404)
+            self.assertTrue(isinstance(not_found.json(), str))
+
     def test_schema(self):
         """Tests OpenAPI schema view."""
         schema = self.client.get(reverse('schema'))
