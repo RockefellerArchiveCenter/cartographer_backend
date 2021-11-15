@@ -10,6 +10,7 @@ from rest_framework.decorators import action
 from rest_framework.exceptions import ParseError
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
+from rest_framework.schemas.openapi import AutoSchema
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 
@@ -177,6 +178,13 @@ class ResourceFetcherView(APIView):
             return Response(str(e), status=500)
 
 
+class FindByURISchema(AutoSchema):
+    """Returns a custom operationId."""
+
+    def get_operation_id(self, path, method):
+        return 'findByUri'
+
+
 class FindByURIView(ListAPIView):
     """Returns all ArrangementMapComponent objects whose `archivesspace_uri`
     property matches a submitted URI.
@@ -186,6 +194,7 @@ class FindByURIView(ListAPIView):
     """
     model = ArrangementMapComponent
     serializer_class = ArrangementMapComponentSerializer
+    schema = FindByURISchema()
 
     def get_queryset(self):
         try:
