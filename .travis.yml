@@ -9,19 +9,20 @@ env:
   global:
     - CONTAINER: cartographer-backend
     - APPLICATION_NAME: cartographer_backend
-    - DJANGO_PORT: 8000
+    - APPLICATION_PORT: 8000
 before_install:
   - cp ${APPLICATION_NAME}/config.py.example ${APPLICATION_NAME}/config.py
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker-compose up -d
 install:
-  - ./wait-for-it.sh $CONTAINER:$DJANGO_PORT -- docker-compose exec $CONTAINER pip install coverage
+  - ./wait-for-it.sh $CONTAINER:$APPLICATION_PORT -- docker-compose exec $CONTAINER pip install coverage
   - pip install pre-commit && pre-commit install
 script:
   - pre-commit run --all-files --show-diff-on-failure
   - docker-compose exec $CONTAINER coverage run manage.py test
   - docker-compose exec $CONTAINER coverage report --omit=*/migrations/* -m
 before_deploy:
+  - if [ ! -d deploy_scripts ]; then git clone https://github.com/RockefellerArchiveCenter/deploy_scripts.git; fi
   - sudo deploy_scripts/substitute_env.sh
   - sudo deploy_scripts/make_zip.sh $DEPLOY_ZIP_DIR $DEPLOY_ZIP_NAME
 deploy:
@@ -36,7 +37,6 @@ deploy:
   bucket: $AWS_BUCKET_NAME
   region: us-east-1
 - provider: codedeploy
-  wait_until_deployed: false
   bucket: $AWS_BUCKET_NAME
   key: $DEPLOY_ZIP_NAME
   bundle_type: zip

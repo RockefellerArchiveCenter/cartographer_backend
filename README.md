@@ -4,7 +4,7 @@ An Django application which provides a backend API to manage JSON tree represent
 
 cartographer_backend is part of [Project Electron](https://github.com/RockefellerArchiveCenter/project_electron), an initiative to build sustainable, open and user-centered infrastructure for the archival management of digital records at the [Rockefeller Archive Center](http://rockarch.org/).
 
-[![Build Status](https://travis-ci.org/RockefellerArchiveCenter/cartographer_backend.svg?branch=base)](https://travis-ci.org/RockefellerArchiveCenter/cartographer_backend)
+[![Build Status](https://app.travis-ci.com/RockefellerArchiveCenter/cartographer_backend.svg?branch=base)](https://app.travis-ci.com/RockefellerArchiveCenter/cartographer_backend)
 
 ## Local Development
 
