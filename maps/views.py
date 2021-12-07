@@ -4,6 +4,7 @@ from asnake.aspace import ASpace
 from asnake.jsonmodel import JSONModelObject
 from cartographer_backend import settings
 from django.core.exceptions import FieldError
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 from django.utils.timezone import make_aware
 from rest_framework.decorators import action
@@ -117,23 +118,13 @@ class ArrangementMapComponentViewset(ModelViewSet):
 
     @action(detail=True)
     def objects_before(self, request, pk=None):
-        """Returns the total number of objects before the target component.
-
-        Fetches the child count for resource records from ArchivesSpace.
-        """
+        """Returns the total number of objects before the target component."""
         obj = get_object_or_404(ArrangementMapComponent, pk=pk)
         try:
-            aspace = ASpace(baseurl=settings.ASPACE['baseurl'],
-                            username=settings.ASPACE['username'],
-                            password=settings.ASPACE['password'])
             previous_components = ArrangementMapComponent.objects.filter(
                 map=obj.map, tree_index__lt=obj.tree_index)
             count = len(previous_components)
-            for component in previous_components:
-                escaped_uri = component.archivesspace_uri.replace('/', r'\/')
-                search_uri = f"search?q=resource:/{escaped_uri}/ AND publish:true&page=1&fields[]=uri&type[]=archival_object&page_size=1"
-                resource = aspace.client.get(search_uri).json()
-                count += resource["total_hits"]
+            count += previous_components.aggregate(Sum("child_count"))["child_count__sum"]
             return Response({"count": count}, status=200)
         except Exception as e:
             return Response(str(e), status=500)
