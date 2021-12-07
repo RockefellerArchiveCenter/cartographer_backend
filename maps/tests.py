@@ -21,6 +21,7 @@ edit_vcr = vcr.VCR(
     match_on=['path', 'method'],
     filter_query_parameters=['username', 'password'],
     filter_headers=['Authorization'],
+    filter_post_data_parameters=['password']
 )
 
 
@@ -154,12 +155,11 @@ class CartographerTest(TestCase):
 
     def test_objects_before_view(self):
         """Tests objects_before action view"""
-        with edit_vcr.use_cassette("objects-before.json"):
-            obj = random.choice(ArrangementMapComponent.objects.all())
-            request = self.factory.get(reverse("arrangementmapcomponent-objects-before", args=[obj.pk]), format="json")
-            response = ArrangementMapComponentViewset.as_view(actions={"get": "objects_before"})(request, pk=obj.pk)
-            self.assertEqual(response.status_code, 200, f"Error in objects_before action view: {response.data}")
-            self.assertTrue(isinstance(response.data["count"], int))
+        obj = random.choice(ArrangementMapComponent.objects.all())
+        request = self.factory.get(reverse("arrangementmapcomponent-objects-before", args=[obj.pk]), format="json")
+        response = ArrangementMapComponentViewset.as_view(actions={"get": "objects_before"})(request, pk=obj.pk)
+        self.assertEqual(response.status_code, 200, f"Error in objects_before action view: {response.data}")
+        self.assertTrue(isinstance(response.data["count"], int))
 
     def test_resource_fetcher_view(self):
         """Tests ResourceFetcherView."""
