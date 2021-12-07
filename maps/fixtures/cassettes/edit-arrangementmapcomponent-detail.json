@@ -1,0 +1,200 @@
+{
+    "version": 1,
+    "interactions": [
+        {
+            "request": {
+                "method": "POST",
+                "uri": "https://as.rockarch.org/api/users/admin/login",
+                "body": "expiring=False",
+                "headers": {
+                    "User-Agent": [
+                        "ArchivesSnake/0.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "application/json"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "Content-Length": [
+                        "40"
+                    ],
+                    "Content-Type": [
+                        "application/x-www-form-urlencoded"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "4062"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=100"
+                    ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:07:51 GMT"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ]
+                },
+                "body": {
+                    "string": "{\"session\":\"f082a7121d3b64cdac977437ac3ccc38cfaf6bdaddc262b8c0cbfe44b9f71035\",\"user\":{\"lock_version\":1034405,\"username\":\"admin\",\"name\":\"Administrator\",\"is_system_user\":true,\"create_time\":\"2014-12-05T20:32:17Z\",\"system_mtime\":\"2021-12-07T21:07:52Z\",\"user_mtime\":\"2021-12-07T21:07:52Z\",\"is_active_user\":true,\"jsonmodel_type\":\"user\",\"groups\":[],\"is_admin\":true,\"uri\":\"/users/1\",\"agent_record\":{\"ref\":\"/agents/people/1\"},\"permissions\":{\"/repositories/2\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"transfer_repository\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"cancel_job\",\"create_job\",\"view_agent_contact_record\",\"show_full_agents\"],\"/repositories/1\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\"],\"_archivesspace\":[\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\",\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\"]}}}\n"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "uri": "https://as.rockarch.org/api/version",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "ArchivesSnake/0.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "application/json"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "X-ArchivesSpace-Session": [
+                        "f082a7121d3b64cdac977437ac3ccc38cfaf6bdaddc262b8c0cbfe44b9f71035"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "X-Frame-Options": [
+                        "SAMEORIGIN"
+                    ],
+                    "Content-Length": [
+                        "22"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=99"
+                    ],
+                    "Access-Control-Allow-Methods": [
+                        "GET"
+                    ],
+                    "Access-Control-Allow-Origin": [
+                        "*"
+                    ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:07:52 GMT"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "Access-Control-Allow-Headers": [
+                        "X-ArchivesSpace-Session"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "X-XSS-Protection": [
+                        "1; mode=block"
+                    ],
+                    "Content-Type": [
+                        "text/html;charset=UTF-8"
+                    ]
+                },
+                "body": {
+                    "string": "ArchivesSpace (v3.1.1)"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "uri": "https://as.rockarch.org/api/search?fields%5B%5D=uri&page=1&page_size=1&q=resource%3A%2F%5C%2Frepositories%5C%2F2%5C%2Fresources%5C%2F1%2F+AND+publish%3Atrue&type%5B%5D=archival_object",
+                "body": null,
+                "headers": {
+                    "User-Agent": [
+                        "ArchivesSnake/0.1"
+                    ],
+                    "Accept-Encoding": [
+                        "gzip, deflate"
+                    ],
+                    "Accept": [
+                        "application/json"
+                    ],
+                    "Connection": [
+                        "keep-alive"
+                    ],
+                    "X-ArchivesSpace-Session": [
+                        "f082a7121d3b64cdac977437ac3ccc38cfaf6bdaddc262b8c0cbfe44b9f71035"
+                    ]
+                }
+            },
+            "response": {
+                "status": {
+                    "code": 200,
+                    "message": "OK"
+                },
+                "headers": {
+                    "Content-Length": [
+                        "293"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=98"
+                    ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:07:52 GMT"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "X-Content-Type-Options": [
+                        "nosniff"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Type": [
+                        "application/json"
+                    ]
+                },
+                "body": {
+                    "string": "{\"page_size\":1,\"first_page\":1,\"last_page\":1,\"this_page\":1,\"offset_first\":1,\"offset_last\":1,\"total_hits\":1,\"results\":[{\"uri\":\"/repositories/2/archival_objects/1\",\"jsonmodel_type\":null}],\"facets\":{\"facet_queries\":{},\"facet_fields\":{},\"facet_ranges\":{},\"facet_intervals\":{},\"facet_heatmaps\":{}}}\n"
+                }
+            }
+        }
+    ]
+}

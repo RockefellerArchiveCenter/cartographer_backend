@@ -7,17 +7,7 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update \
     && apt-get install -y \
       postgresql \
-      netcat \
-      apache2 \
-      apache2-dev \
-      libapache2-mod-wsgi-py3 \
     && rm -rf /var/lib/apt/lists/*
-
-RUN a2dissite 000-default
-
-# Copy Apache configs
-COPY apache/django.conf /etc/apache2/sites-available/cartographer.conf
-RUN a2ensite cartographer.conf
 
 WORKDIR /code/cartographer_backend/
 
