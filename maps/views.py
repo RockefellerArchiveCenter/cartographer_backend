@@ -124,7 +124,7 @@ class ArrangementMapComponentViewset(ModelViewSet):
             previous_components = ArrangementMapComponent.objects.filter(
                 map=obj.map, tree_index__lt=obj.tree_index)
             count = len(previous_components)
-            count += previous_components.aggregate(Sum("child_count"))["child_count__sum"]
+            count += previous_components.aggregate(Sum("child_count")).get("child_count__sum", 0)
             return Response({"count": count}, status=200)
         except Exception as e:
             return Response(str(e), status=500)
