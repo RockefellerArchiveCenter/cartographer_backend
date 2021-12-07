@@ -53,24 +53,25 @@ class CartographerTest(TestCase):
 
     def test_create_components(self):
         """Tests creation of ArrangementMapComponent objects."""
-        ArrangementMapComponent.objects.all().delete()
-        map = random.choice(ArrangementMap.objects.all())
-        for i in range(self.component_number):
-            request = self.factory.post(
-                reverse('arrangementmapcomponent-list'),
-                format="json",
-                data={
-                    'title': get_title_string(),
-                    'archivesspace_uri': f"/repositories/{settings.ASPACE['repo_id']}/resources/1",
-                    'level': random.choice(['collection', 'series', 'subseries']),
-                    'map': map.pk,
-                    'order': i})
-            response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
-            self.assertEqual(response.status_code, 201, "Error creating component: {response.data}")
-        self.assertEqual(
-            len(ArrangementMapComponent.objects.all()),
-            self.component_number,
-            f"Expecting {self.component_number} ArrangementMapComponent objects but got {len(ArrangementMapComponent.objects.all())}")
+        with edit_vcr.use_cassette("create-components.json"):
+            ArrangementMapComponent.objects.all().delete()
+            map = random.choice(ArrangementMap.objects.all())
+            for i in range(self.component_number):
+                request = self.factory.post(
+                    reverse('arrangementmapcomponent-list'),
+                    format="json",
+                    data={
+                        'title': get_title_string(),
+                        'archivesspace_uri': f"/repositories/{settings.ASPACE['repo_id']}/resources/1",
+                        'level': random.choice(['collection', 'series', 'subseries']),
+                        'map': map.pk,
+                        'order': i})
+                response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
+                self.assertEqual(response.status_code, 201, "Error creating component: {response.data}")
+            self.assertEqual(
+                len(ArrangementMapComponent.objects.all()),
+                self.component_number,
+                f"Expecting {self.component_number} ArrangementMapComponent objects but got {len(ArrangementMapComponent.objects.all())}")
 
     def test_edit_objects(self):
         """Tests editing of ArrangementMap objects."""
