@@ -5,7 +5,7 @@
             "request": {
                 "method": "POST",
                 "uri": "https://as.rockarch.org/api/users/admin/login",
-                "body": "password=%25Q3Vm%5EVf84JZ&expiring=False",
+                "body": "expiring=False",
                 "headers": {
                     "User-Agent": [
                         "ArchivesSnake/0.1"
@@ -33,33 +33,33 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:36 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=100"
-                    ],
-                    "Content-Length": [
-                        "4021"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:37 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "4062"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=100"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {
-                    "string": "{\"session\":\"271c11ed2d95161406b0e675db073ce7f6324bb5702e7f957795a19fd2fe2dc0\",\"user\":{\"lock_version\":1034347,\"username\":\"admin\",\"name\":\"Administrator\",\"is_system_user\":true,\"create_time\":\"2014-12-05T20:32:17Z\",\"system_mtime\":\"2021-11-11T17:44:36Z\",\"user_mtime\":\"2021-11-11T17:44:36Z\",\"jsonmodel_type\":\"user\",\"groups\":[],\"is_admin\":true,\"uri\":\"/users/1\",\"agent_record\":{\"ref\":\"/agents/people/1\"},\"permissions\":{\"/repositories/2\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"transfer_repository\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"cancel_job\",\"create_job\",\"view_agent_contact_record\"],\"/repositories/1\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\"],\"_archivesspace\":[\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\",\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\"]}}}\n"
+                    "string": "{\"session\":\"908a35d6ba82c42bbf8aa0f3742b0a7b1ff7fec771f0501286cf94b9ec49af36\",\"user\":{\"lock_version\":1034436,\"username\":\"admin\",\"name\":\"Administrator\",\"is_system_user\":true,\"create_time\":\"2014-12-05T20:32:17Z\",\"system_mtime\":\"2021-12-07T21:08:38Z\",\"user_mtime\":\"2021-12-07T21:08:38Z\",\"is_active_user\":true,\"jsonmodel_type\":\"user\",\"groups\":[],\"is_admin\":true,\"uri\":\"/users/1\",\"agent_record\":{\"ref\":\"/agents/people/1\"},\"permissions\":{\"/repositories/2\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"transfer_repository\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"cancel_job\",\"create_job\",\"view_agent_contact_record\",\"show_full_agents\"],\"/repositories/1\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\"],\"_archivesspace\":[\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\",\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\"]}}}\n"
                 }
             }
         },
@@ -82,7 +82,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "271c11ed2d95161406b0e675db073ce7f6324bb5702e7f957795a19fd2fe2dc0"
+                        "908a35d6ba82c42bbf8aa0f3742b0a7b1ff7fec771f0501286cf94b9ec49af36"
                     ]
                 }
             },
@@ -92,48 +92,48 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
-                    "Access-Control-Allow-Methods": [
-                        "GET"
-                    ],
-                    "X-XSS-Protection": [
-                        "1; mode=block"
+                    "Access-Control-Allow-Origin": [
+                        "*"
                     ],
                     "X-Content-Type-Options": [
                         "nosniff"
                     ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
                     "Date": [
-                        "Thu, 11 Nov 2021 17:44:36 GMT"
+                        "Tue, 07 Dec 2021 21:08:38 GMT"
                     ],
-                    "Keep-Alive": [
-                        "timeout=5, max=99"
-                    ],
-                    "Access-Control-Allow-Headers": [
-                        "X-ArchivesSpace-Session"
-                    ],
-                    "Access-Control-Allow-Origin": [
-                        "*"
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
                     ],
                     "Content-Length": [
                         "22"
                     ],
-                    "Connection": [
-                        "Keep-Alive"
+                    "X-XSS-Protection": [
+                        "1; mode=block"
                     ],
                     "X-Frame-Options": [
                         "SAMEORIGIN"
                     ],
+                    "Access-Control-Allow-Methods": [
+                        "GET"
+                    ],
                     "Content-Type": [
                         "text/html;charset=UTF-8"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=99"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "Access-Control-Allow-Headers": [
+                        "X-ArchivesSpace-Session"
                     ]
                 },
                 "body": {
-                    "string": "ArchivesSpace (v2.8.0)"
+                    "string": "ArchivesSpace (v3.1.1)"
                 }
             }
         },
@@ -156,7 +156,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "271c11ed2d95161406b0e675db073ce7f6324bb5702e7f957795a19fd2fe2dc0"
+                        "908a35d6ba82c42bbf8aa0f3742b0a7b1ff7fec771f0501286cf94b9ec49af36"
                     ]
                 }
             },
@@ -166,29 +166,29 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:36 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=98"
-                    ],
-                    "Content-Length": [
-                        "636"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:38 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "636"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=98"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {
@@ -215,7 +215,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "271c11ed2d95161406b0e675db073ce7f6324bb5702e7f957795a19fd2fe2dc0"
+                        "908a35d6ba82c42bbf8aa0f3742b0a7b1ff7fec771f0501286cf94b9ec49af36"
                     ]
                 }
             },
@@ -225,29 +225,29 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:36 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=97"
-                    ],
-                    "Content-Length": [
-                        "9710"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:38 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "9710"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=97"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {
@@ -274,7 +274,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "271c11ed2d95161406b0e675db073ce7f6324bb5702e7f957795a19fd2fe2dc0"
+                        "908a35d6ba82c42bbf8aa0f3742b0a7b1ff7fec771f0501286cf94b9ec49af36"
                     ]
                 }
             },
@@ -284,42 +284,42 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
-                    "Access-Control-Allow-Methods": [
-                        "GET"
+                    "Access-Control-Allow-Origin": [
+                        "*"
                     ],
                     "X-Content-Type-Options": [
                         "nosniff"
                     ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
                     "Date": [
-                        "Thu, 11 Nov 2021 17:44:37 GMT"
+                        "Tue, 07 Dec 2021 21:08:38 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "6995"
+                    ],
+                    "Access-Control-Allow-Methods": [
+                        "GET"
+                    ],
+                    "Content-Type": [
+                        "application/json"
                     ],
                     "Keep-Alive": [
                         "timeout=5, max=96"
                     ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
                     "Access-Control-Allow-Headers": [
                         "X-ArchivesSpace-Session"
-                    ],
-                    "Access-Control-Allow-Origin": [
-                        "*"
-                    ],
-                    "Content-Length": [
-                        "6961"
-                    ],
-                    "Connection": [
-                        "Keep-Alive"
-                    ],
-                    "Content-Type": [
-                        "application/json"
                     ]
                 },
                 "body": {
-                    "string": "{\"lock_version\":503,\"title\":\"Stacy May papers, office files\",\"other_level\":\"Accession\",\"publish\":true,\"restrictions\":false,\"repository_processing_note\":\"Processed by Robert J. Battaly, October 2012\",\"finding_aid_title\":\"\\n\",\"finding_aid_language_note\":\"English\",\"created_by\":\"admin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2014-12-06T03:25:47Z\",\"system_mtime\":\"2021-06-15T17:44:43Z\",\"user_mtime\":\"2021-06-15T17:44:43Z\",\"suppressed\":false,\"is_slug_auto\":false,\"id_0\":\"AC\",\"id_1\":\"1983\",\"id_2\":\"075\",\"level\":\"otherlevel\",\"finding_aid_description_rules\":\"dacs\",\"finding_aid_language\":\"eng\",\"finding_aid_script\":\"Latn\",\"jsonmodel_type\":\"resource\",\"external_ids\":[{\"external_id\":\"18789\",\"source\":\"Archivists Toolkit Database::RESOURCE\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"jsonmodel_type\":\"external_id\"}],\"subjects\":[],\"linked_events\":[],\"extents\":[{\"lock_version\":0,\"number\":\"4.8\",\"container_summary\":\"4 standard record storage boxes\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"portion\":\"whole\",\"extent_type\":\"cubic_feet\",\"jsonmodel_type\":\"extent\"}],\"lang_materials\":[{\"lock_version\":0,\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"jsonmodel_type\":\"lang_material\",\"notes\":[],\"language_and_script\":{\"lock_version\":0,\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"language\":\"eng\",\"jsonmodel_type\":\"language_and_script\"}}],\"dates\":[{\"lock_version\":0,\"expression\":\"1947-1962\",\"begin\":\"1947\",\"end\":\"1962\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"date_type\":\"inclusive\",\"label\":\"creation\",\"jsonmodel_type\":\"date\"},{\"lock_version\":0,\"begin\":\"1950\",\"end\":\"1962\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"date_type\":\"bulk\",\"label\":\"creation\",\"jsonmodel_type\":\"date\"}],\"external_documents\":[],\"rights_statements\":[],\"linked_agents\":[],\"revision_statements\":[],\"instances\":[],\"deaccessions\":[],\"related_accessions\":[{\"ref\":\"/repositories/2/accessions/288\"},{\"ref\":\"/repositories/2/accessions/3084\"}],\"classifications\":[],\"notes\":[{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"88724710acea834f921e56806693b25d\",\"type\":\"prefercite\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Repository Name, Collection Name, Record Group Name or Number (if applicable), Series Name or Number (if applicable), Subseries Name or Number (if applicable), Box number, Folder number, specific item description.\\n\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"6ffcf97800d0a1d7164b1aedf219b326\",\"type\":\"bioghist\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Stacy May (b.1896-d.1980) was born in Philadelphia in 1896. He attended Amherst College and received his Ph.D. in economics from the Brookings Graduate School of Economics and Government in Washington, D.C. in 1925. \\n\\nHe taught economics at Amherst, Cornell and Dartmouth in the 1920s and early 1930s. May was assistant director of Social Sciences at the Rockefeller Foundation from 1932-1942. May was the Director of the Bureau of Research and Statistics of the War Production Board from 1940-1944 and he served as an economic analyst for several government advisory committees and commission. During his career he was also an economist for McGraw Hill Publishing. \\n\\nFrom 1947-1962, May served as economic advisor to Room 5600, the Rockefeller family office, and to the International Basic Economy Corporation (IBEC), where he worked on the economic development of Latin America, Africa and Asia. He retired in 1965 as an economic consultant to the Rockefeller family. \",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"9fc6c63b4387de802021a660650f185e\",\"type\":\"accessrestrict\",\"rights_restriction\":{\"local_access_restriction_type\":[]},\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Material is restricted from access until processing is completed.\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"8c484ef84b9f04c9694c66d15df65c11\",\"type\":\"scopecontent\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"The collection primarily documents a portion of May\u2019s career as an economist and his activities as an economic advisor to members of the Rockefeller family.\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"20ce83b2cbb42a53afea9d8a28f5129c\",\"type\":\"arrangement\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"The collection is arranged as received by Rockefeller Archive Center.\\n\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"12191d2d843d49e9564c81d6d548ecc9\",\"type\":\"phystech\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Materials requiring specialized equipment for access (film, audio, video, slides) may be closed to research dependent on availability of the applicable equipment.\\n\\nBrittle or damaged items, or materials otherwise in need of preservation care, may be closed to researchers at the discretion of the RAC Head of Reference and/or RAC Head of Archival Services.\\n\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"5fc08b99b3b89ab345ebdde3b596ceb5\",\"type\":\"acqinfo\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"The Stacy May office files were transferred to the RAC from Rockefeller Family and Associates (Room 5600). The specific date of transfer is unknown, potentially spanning the late 1970s-mid 1980s. \\n\\nThe records were officially accessioned (2012:075) when processing began.\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"b22a0b0ec8d3f385188387fc912225fc\",\"type\":\"processinfo\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Processed by Robert Battaly, October 2012\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"21341a217fbcd7a5a8cf4a9987cf1111\",\"type\":\"relatedmaterial\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Rockefeller Foundation records\\nRockefeller Brothers Fund: Special Studies Project\\nInternational Business Economic Corporation (IBEC) records\\nNelson A. Rockefeller papers\\nFord Foundation records\\n\",\"publish\":true}],\"publish\":true}],\"uri\":\"/repositories/2/resources/1\",\"repository\":{\"ref\":\"/repositories/2\"},\"tree\":{\"ref\":\"/repositories/2/resources/1/tree\"}}\n"
+                    "string": "{\"lock_version\":503,\"title\":\"Stacy May papers, office files\",\"other_level\":\"Accession\",\"publish\":true,\"restrictions\":false,\"repository_processing_note\":\"Processed by Robert J. Battaly, October 2012\",\"finding_aid_title\":\"\\n\",\"finding_aid_language_note\":\"English\",\"created_by\":\"admin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2014-12-06T03:25:47Z\",\"system_mtime\":\"2021-06-15T17:44:43Z\",\"user_mtime\":\"2021-06-15T17:44:43Z\",\"suppressed\":false,\"is_slug_auto\":false,\"id_0\":\"AC\",\"id_1\":\"1983\",\"id_2\":\"075\",\"level\":\"otherlevel\",\"finding_aid_description_rules\":\"dacs\",\"finding_aid_language\":\"eng\",\"finding_aid_script\":\"Latn\",\"jsonmodel_type\":\"resource\",\"external_ids\":[{\"external_id\":\"18789\",\"source\":\"Archivists Toolkit Database::RESOURCE\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"jsonmodel_type\":\"external_id\"}],\"subjects\":[],\"linked_events\":[],\"extents\":[{\"lock_version\":0,\"number\":\"4.8\",\"container_summary\":\"4 standard record storage boxes\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"portion\":\"whole\",\"extent_type\":\"cubic_feet\",\"jsonmodel_type\":\"extent\"}],\"lang_materials\":[{\"lock_version\":0,\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"jsonmodel_type\":\"lang_material\",\"notes\":[],\"language_and_script\":{\"lock_version\":0,\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"language\":\"eng\",\"jsonmodel_type\":\"language_and_script\"}}],\"dates\":[{\"lock_version\":0,\"expression\":\"1947-1962\",\"begin\":\"1947\",\"end\":\"1962\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"date_type\":\"inclusive\",\"label\":\"creation\",\"jsonmodel_type\":\"date\"},{\"lock_version\":0,\"begin\":\"1950\",\"end\":\"1962\",\"created_by\":\"k.martin\",\"last_modified_by\":\"k.martin\",\"create_time\":\"2021-06-15T17:44:53Z\",\"system_mtime\":\"2021-06-15T17:44:53Z\",\"user_mtime\":\"2021-06-15T17:44:53Z\",\"date_type\":\"bulk\",\"label\":\"creation\",\"jsonmodel_type\":\"date\"}],\"external_documents\":[],\"rights_statements\":[],\"linked_agents\":[],\"revision_statements\":[],\"instances\":[],\"deaccessions\":[],\"related_accessions\":[{\"ref\":\"/repositories/2/accessions/288\"},{\"ref\":\"/repositories/2/accessions/3084\"}],\"classifications\":[],\"notes\":[{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"88724710acea834f921e56806693b25d\",\"type\":\"prefercite\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Repository Name, Collection Name, Record Group Name or Number (if applicable), Series Name or Number (if applicable), Subseries Name or Number (if applicable), Box number, Folder number, specific item description.\\n\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"6ffcf97800d0a1d7164b1aedf219b326\",\"type\":\"bioghist\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Stacy May (b.1896-d.1980) was born in Philadelphia in 1896. He attended Amherst College and received his Ph.D. in economics from the Brookings Graduate School of Economics and Government in Washington, D.C. in 1925. \\n\\nHe taught economics at Amherst, Cornell and Dartmouth in the 1920s and early 1930s. May was assistant director of Social Sciences at the Rockefeller Foundation from 1932-1942. May was the Director of the Bureau of Research and Statistics of the War Production Board from 1940-1944 and he served as an economic analyst for several government advisory committees and commission. During his career he was also an economist for McGraw Hill Publishing. \\n\\nFrom 1947-1962, May served as economic advisor to Room 5600, the Rockefeller family office, and to the International Basic Economy Corporation (IBEC), where he worked on the economic development of Latin America, Africa and Asia. He retired in 1965 as an economic consultant to the Rockefeller family. \",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"9fc6c63b4387de802021a660650f185e\",\"type\":\"accessrestrict\",\"rights_restriction\":{\"local_access_restriction_type\":[]},\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Material is restricted from access until processing is completed.\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"8c484ef84b9f04c9694c66d15df65c11\",\"type\":\"scopecontent\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"The collection primarily documents a portion of May\u2019s career as an economist and his activities as an economic advisor to members of the Rockefeller family.\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"20ce83b2cbb42a53afea9d8a28f5129c\",\"type\":\"arrangement\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"The collection is arranged as received by Rockefeller Archive Center.\\n\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"12191d2d843d49e9564c81d6d548ecc9\",\"type\":\"phystech\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Materials requiring specialized equipment for access (film, audio, video, slides) may be closed to research dependent on availability of the applicable equipment.\\n\\nBrittle or damaged items, or materials otherwise in need of preservation care, may be closed to researchers at the discretion of the RAC Head of Reference and/or RAC Head of Archival Services.\\n\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"5fc08b99b3b89ab345ebdde3b596ceb5\",\"type\":\"acqinfo\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"The Stacy May office files were transferred to the RAC from Rockefeller Family and Associates (Room 5600). The specific date of transfer is unknown, potentially spanning the late 1970s-mid 1980s. \\n\\nThe records were officially accessioned (2012:075) when processing began.\\n\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"b22a0b0ec8d3f385188387fc912225fc\",\"type\":\"processinfo\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Processed by Robert Battaly, October 2012\",\"publish\":true}],\"publish\":true},{\"jsonmodel_type\":\"note_multipart\",\"persistent_id\":\"21341a217fbcd7a5a8cf4a9987cf1111\",\"type\":\"relatedmaterial\",\"subnotes\":[{\"jsonmodel_type\":\"note_text\",\"content\":\"Rockefeller Foundation records\\nRockefeller Brothers Fund: Special Studies Project\\nInternational Business Economic Corporation (IBEC) records\\nNelson A. Rockefeller papers\\nFord Foundation records\\n\",\"publish\":true}],\"publish\":true}],\"metadata_rights_declarations\":[],\"uri\":\"/repositories/2/resources/1\",\"repository\":{\"ref\":\"/repositories/2\"},\"tree\":{\"ref\":\"/repositories/2/resources/1/tree\"}}\n"
                 }
             }
         },
@@ -327,7 +327,7 @@
             "request": {
                 "method": "POST",
                 "uri": "https://as.rockarch.org/api/users/admin/login",
-                "body": "password=%25Q3Vm%5EVf84JZ&expiring=False",
+                "body": "expiring=False",
                 "headers": {
                     "User-Agent": [
                         "ArchivesSnake/0.1"
@@ -355,33 +355,33 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:37 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=100"
-                    ],
-                    "Content-Length": [
-                        "4021"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:38 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "4062"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=100"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {
-                    "string": "{\"session\":\"20f219fa14bd43b96f90b0931b39ad3878e0d342223a23e413661abef2057091\",\"user\":{\"lock_version\":1034348,\"username\":\"admin\",\"name\":\"Administrator\",\"is_system_user\":true,\"create_time\":\"2014-12-05T20:32:17Z\",\"system_mtime\":\"2021-11-11T17:44:37Z\",\"user_mtime\":\"2021-11-11T17:44:37Z\",\"jsonmodel_type\":\"user\",\"groups\":[],\"is_admin\":true,\"uri\":\"/users/1\",\"agent_record\":{\"ref\":\"/agents/people/1\"},\"permissions\":{\"/repositories/2\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"transfer_repository\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"cancel_job\",\"create_job\",\"view_agent_contact_record\"],\"/repositories/1\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\"],\"_archivesspace\":[\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\",\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\"]}}}\n"
+                    "string": "{\"session\":\"b4fba6328dcf6b7d3403e0432e39f95800f36a8015bb038c99d15521b6880e87\",\"user\":{\"lock_version\":1034437,\"username\":\"admin\",\"name\":\"Administrator\",\"is_system_user\":true,\"create_time\":\"2014-12-05T20:32:17Z\",\"system_mtime\":\"2021-12-07T21:08:39Z\",\"user_mtime\":\"2021-12-07T21:08:39Z\",\"is_active_user\":true,\"jsonmodel_type\":\"user\",\"groups\":[],\"is_admin\":true,\"uri\":\"/users/1\",\"agent_record\":{\"ref\":\"/agents/people/1\"},\"permissions\":{\"/repositories/2\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"transfer_repository\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"cancel_job\",\"create_job\",\"view_agent_contact_record\",\"show_full_agents\"],\"/repositories/1\":[\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\",\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\"],\"_archivesspace\":[\"administer_system\",\"manage_users\",\"become_user\",\"view_all_records\",\"create_repository\",\"delete_repository\",\"transfer_repository\",\"index_system\",\"manage_repository\",\"update_accession_record\",\"update_resource_record\",\"update_digital_object_record\",\"update_event_record\",\"delete_event_record\",\"suppress_archival_record\",\"transfer_archival_record\",\"delete_archival_record\",\"view_suppressed\",\"view_repository\",\"update_classification_record\",\"delete_classification_record\",\"mediate_edits\",\"import_records\",\"cancel_importer_job\",\"manage_subject_record\",\"manage_agent_record\",\"manage_vocabulary_record\",\"merge_agents_and_subjects\",\"merge_archival_record\",\"manage_rde_templates\",\"update_container_record\",\"manage_container_record\",\"manage_container_profile_record\",\"manage_location_profile_record\",\"create_job\",\"cancel_job\",\"update_assessment_record\",\"delete_assessment_record\",\"manage_assessment_attributes\",\"manage_enumeration_record\",\"view_agent_contact_record\",\"update_location_record\",\"delete_vocabulary_record\",\"update_subject_record\",\"delete_subject_record\",\"update_agent_record\",\"delete_agent_record\",\"update_vocabulary_record\",\"merge_subject_record\",\"merge_agent_record\",\"update_container_profile_record\",\"update_location_profile_record\",\"update_enumeration_record\"]}}}\n"
                 }
             }
         },
@@ -404,7 +404,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "20f219fa14bd43b96f90b0931b39ad3878e0d342223a23e413661abef2057091"
+                        "b4fba6328dcf6b7d3403e0432e39f95800f36a8015bb038c99d15521b6880e87"
                     ]
                 }
             },
@@ -414,48 +414,48 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
-                    "Access-Control-Allow-Methods": [
-                        "GET"
-                    ],
-                    "X-XSS-Protection": [
-                        "1; mode=block"
+                    "Access-Control-Allow-Origin": [
+                        "*"
                     ],
                     "X-Content-Type-Options": [
                         "nosniff"
                     ],
+                    "Connection": [
+                        "Keep-Alive"
+                    ],
                     "Date": [
-                        "Thu, 11 Nov 2021 17:44:37 GMT"
+                        "Tue, 07 Dec 2021 21:08:39 GMT"
                     ],
-                    "Keep-Alive": [
-                        "timeout=5, max=99"
-                    ],
-                    "Access-Control-Allow-Headers": [
-                        "X-ArchivesSpace-Session"
-                    ],
-                    "Access-Control-Allow-Origin": [
-                        "*"
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
                     ],
                     "Content-Length": [
                         "22"
                     ],
-                    "Connection": [
-                        "Keep-Alive"
+                    "X-XSS-Protection": [
+                        "1; mode=block"
                     ],
                     "X-Frame-Options": [
                         "SAMEORIGIN"
                     ],
+                    "Access-Control-Allow-Methods": [
+                        "GET"
+                    ],
                     "Content-Type": [
                         "text/html;charset=UTF-8"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=99"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
+                    ],
+                    "Access-Control-Allow-Headers": [
+                        "X-ArchivesSpace-Session"
                     ]
                 },
                 "body": {
-                    "string": "ArchivesSpace (v2.8.0)"
+                    "string": "ArchivesSpace (v3.1.1)"
                 }
             }
         },
@@ -478,7 +478,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "20f219fa14bd43b96f90b0931b39ad3878e0d342223a23e413661abef2057091"
+                        "b4fba6328dcf6b7d3403e0432e39f95800f36a8015bb038c99d15521b6880e87"
                     ]
                 }
             },
@@ -488,29 +488,29 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:37 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=98"
-                    ],
-                    "Content-Length": [
-                        "636"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:39 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "636"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=98"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {
@@ -537,7 +537,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "20f219fa14bd43b96f90b0931b39ad3878e0d342223a23e413661abef2057091"
+                        "b4fba6328dcf6b7d3403e0432e39f95800f36a8015bb038c99d15521b6880e87"
                     ]
                 }
             },
@@ -547,29 +547,29 @@
                     "message": "OK"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:37 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=97"
-                    ],
-                    "Content-Length": [
-                        "9710"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:39 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "9710"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=97"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {
@@ -596,7 +596,7 @@
                         "keep-alive"
                     ],
                     "X-ArchivesSpace-Session": [
-                        "20f219fa14bd43b96f90b0931b39ad3878e0d342223a23e413661abef2057091"
+                        "b4fba6328dcf6b7d3403e0432e39f95800f36a8015bb038c99d15521b6880e87"
                     ]
                 }
             },
@@ -606,29 +606,29 @@
                     "message": "Not Found"
                 },
                 "headers": {
-                    "Cache-Control": [
-                        "private, must-revalidate, max-age=0"
-                    ],
-                    "Server": [
-                        "Jetty(8.1.5.v20120716)"
-                    ],
                     "X-Content-Type-Options": [
                         "nosniff"
-                    ],
-                    "Date": [
-                        "Thu, 11 Nov 2021 17:44:37 GMT"
-                    ],
-                    "Keep-Alive": [
-                        "timeout=5, max=96"
-                    ],
-                    "Content-Length": [
-                        "31"
                     ],
                     "Connection": [
                         "Keep-Alive"
                     ],
+                    "Date": [
+                        "Tue, 07 Dec 2021 21:08:39 GMT"
+                    ],
+                    "Server": [
+                        "Jetty(8.1.5.v20120716)"
+                    ],
+                    "Content-Length": [
+                        "31"
+                    ],
                     "Content-Type": [
                         "application/json"
+                    ],
+                    "Keep-Alive": [
+                        "timeout=5, max=96"
+                    ],
+                    "Cache-Control": [
+                        "private, must-revalidate, max-age=0"
                     ]
                 },
                 "body": {

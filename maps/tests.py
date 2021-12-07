@@ -21,6 +21,7 @@ edit_vcr = vcr.VCR(
     match_on=['path', 'method'],
     filter_query_parameters=['username', 'password'],
     filter_headers=['Authorization'],
+    filter_post_data_parameters=['password']
 )
 
 
@@ -52,24 +53,25 @@ class CartographerTest(TestCase):
 
     def test_create_components(self):
         """Tests creation of ArrangementMapComponent objects."""
-        ArrangementMapComponent.objects.all().delete()
-        map = random.choice(ArrangementMap.objects.all())
-        for i in range(self.component_number):
-            request = self.factory.post(
-                reverse('arrangementmapcomponent-list'),
-                format="json",
-                data={
-                    'title': get_title_string(),
-                    'archivesspace_uri': f"/repositories/{settings.ASPACE['repo_id']}/resources/1",
-                    'level': random.choice(['collection', 'series', 'subseries']),
-                    'map': map.pk,
-                    'order': i})
-            response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
-            self.assertEqual(response.status_code, 201, "Error creating component: {response.data}")
-        self.assertEqual(
-            len(ArrangementMapComponent.objects.all()),
-            self.component_number,
-            f"Expecting {self.component_number} ArrangementMapComponent objects but got {len(ArrangementMapComponent.objects.all())}")
+        with edit_vcr.use_cassette("create-components.json"):
+            ArrangementMapComponent.objects.all().delete()
+            map = random.choice(ArrangementMap.objects.all())
+            for i in range(self.component_number):
+                request = self.factory.post(
+                    reverse('arrangementmapcomponent-list'),
+                    format="json",
+                    data={
+                        'title': get_title_string(),
+                        'archivesspace_uri': f"/repositories/{settings.ASPACE['repo_id']}/resources/1",
+                        'level': random.choice(['collection', 'series', 'subseries']),
+                        'map': map.pk,
+                        'order': i})
+                response = ArrangementMapComponentViewset.as_view(actions={"post": "create"})(request)
+                self.assertEqual(response.status_code, 201, "Error creating component: {response.data}")
+            self.assertEqual(
+                len(ArrangementMapComponent.objects.all()),
+                self.component_number,
+                f"Expecting {self.component_number} ArrangementMapComponent objects but got {len(ArrangementMapComponent.objects.all())}")
 
     def test_edit_objects(self):
         """Tests editing of ArrangementMap objects."""
@@ -154,12 +156,11 @@ class CartographerTest(TestCase):
 
     def test_objects_before_view(self):
         """Tests objects_before action view"""
-        with edit_vcr.use_cassette("objects-before.json"):
-            obj = random.choice(ArrangementMapComponent.objects.all())
-            request = self.factory.get(reverse("arrangementmapcomponent-objects-before", args=[obj.pk]), format="json")
-            response = ArrangementMapComponentViewset.as_view(actions={"get": "objects_before"})(request, pk=obj.pk)
-            self.assertEqual(response.status_code, 200, f"Error in objects_before action view: {response.data}")
-            self.assertTrue(isinstance(response.data["count"], int))
+        obj = random.choice(ArrangementMapComponent.objects.all())
+        request = self.factory.get(reverse("arrangementmapcomponent-objects-before", args=[obj.pk]), format="json")
+        response = ArrangementMapComponentViewset.as_view(actions={"get": "objects_before"})(request, pk=obj.pk)
+        self.assertEqual(response.status_code, 200, f"Error in objects_before action view: {response.data}")
+        self.assertTrue(isinstance(response.data["count"], int))
 
     def test_resource_fetcher_view(self):
         """Tests ResourceFetcherView."""
