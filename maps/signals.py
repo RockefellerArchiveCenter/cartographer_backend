@@ -28,7 +28,7 @@ def update_map(sender, instance, **kwargs):
 
 @receiver(pre_save, sender=ArrangementMapComponent)
 def calculate_child_count(sender, instance, **kwargs):
-    if instance.archivesspace_uri:
+    if instance.archivesspace_uri and not kwargs["raw"]:
         aspace = ASpace(baseurl=settings.ASPACE['baseurl'],
                         username=settings.ASPACE['username'],
                         password=settings.ASPACE['password'])
