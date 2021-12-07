@@ -26,31 +26,6 @@ Or, if you want to remove all data
 
     $ docker-compose down -v
 
-
-## Deploying in production
-
-In order to deploy in production, `cartographer_backend` expects the following environment variables to be set (the values associated with each of these may change):
-
-```
-DEBUG=1  # whether or not the application should run in debug mode, 0 is False and 1 is True
-SECRET_KEY=^6yxvs8k9czbwt9o8!y^ay)$il4^*9d(eykpo8%u5)-js9n6wfk  # the secret key used by WSGI
-DJANGO_ALLOWED_HOSTS=cartographer-backend localhost  # a space-delimited list of allowed hosts
-SQL_ENGINE=django.db.backends.postgresql  # The database engine to use
-SQL_DATABASE=cartographer_backend_dev  # The database name to connect to
-SQL_USER=cartographer_backend  # The database user to connect with
-SQL_PASSWORD=cartographer_backend  # The password associated with the database user
-SQL_HOST=cartographer-db  # The database host
-SQL_PORT=5432  # The port at which the database is avaialble
-AS_BASEURL=http://sandbox.archivesspace.org:8089/  # The base URL for an ArchivesSpace instance
-AS_USERNAME=admin  # The ArchivesSpace user to connect with
-AS_PASSWORD=admin  # The password for the ArchivesSpace user
-AS_REPO_ID=2  # The identifier for the ArchivesSpace repository you want to target
-CORS_ORIGIN_WHITELIST=http://localhost:3000  # A list of hosts that are allowed to access the API using CORS
-```
-
-You can either provide these variables on the command line or in an [env file](https://docs.docker.com/compose/env-file/).
-
-
 ### Routes
 
 | Method | URL | Parameters | Response  | Behavior  |
