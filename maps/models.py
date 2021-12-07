@@ -21,6 +21,7 @@ class ArrangementMapComponent(MPTTModel):
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     map = models.ForeignKey(ArrangementMap, on_delete=models.CASCADE, related_name='components')
     tree_index = models.IntegerField(null=True, blank=True)
+    child_count = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
