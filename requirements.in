@@ -2,7 +2,7 @@ ArchivesSnake==0.9.1
 Django==3.2.10
 django-cors-headers==3.10.0
 django-mptt==0.13.4
-djangorestframework==3.12.4
+djangorestframework==3.13.1
 health-check==3.4.1
 psycopg2-binary==2.9.2
 uritemplate==4.1.1

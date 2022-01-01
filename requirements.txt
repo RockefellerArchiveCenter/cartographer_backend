@@ -31,7 +31,7 @@ django-js-asset==1.2.2
     # via django-mptt
 django-mptt==0.13.4
     # via -r requirements.in
-djangorestframework==3.12.4
+djangorestframework==3.13.1
     # via -r requirements.in
 gitdb==4.0.9
     # via gitpython
@@ -50,7 +50,9 @@ multidict==5.2.0
 psycopg2-binary==2.9.2
     # via -r requirements.in
 pytz==2021.3
-    # via django
+    # via
+    #   django
+    #   djangorestframework
 pyyaml==6.0
     # via
     #   archivessnake
@@ -68,12 +70,6 @@ sqlparse==0.4.2
     # via django
 structlog==21.4.0
     # via archivessnake
-typing-extensions==4.0.1
-    # via
-    #   asgiref
-    #   gitpython
-    #   structlog
-    #   yarl
 uritemplate==4.1.1
     # via -r requirements.in
 urllib3==1.26.7
