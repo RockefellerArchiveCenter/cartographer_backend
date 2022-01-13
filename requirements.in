@@ -1,5 +1,5 @@
 ArchivesSnake==0.9.1
-Django==3.2.11
+Django==4.0.1
 django-cors-headers==3.10.1
 django-mptt==0.13.4
 djangorestframework==3.13.1
