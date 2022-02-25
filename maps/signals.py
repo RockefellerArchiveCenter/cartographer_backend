@@ -1,8 +1,9 @@
 from asnake.aspace import ASpace
-from cartographer_backend import settings
 from django.db.models.signals import post_save, pre_delete, pre_save
 from django.dispatch import receiver
 from django.urls import reverse
+
+from cartographer_backend import settings
 
 from .models import (ArrangementMap, ArrangementMapComponent,
                      DeletedArrangementMap)

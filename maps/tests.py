@@ -2,10 +2,11 @@ import random
 import string
 
 import vcr
-from cartographer_backend import settings
 from django.test import TestCase
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory
+
+from cartographer_backend import settings
 
 from .models import (ArrangementMap, ArrangementMapComponent,
                      DeletedArrangementMap)
@@ -176,3 +177,7 @@ class CartographerTest(TestCase):
         """Tests OpenAPI schema view."""
         schema = self.client.get(reverse('schema'))
         self.assertEqual(schema.status_code, 200, "Wrong HTTP code")
+
+    def test_ping(self):
+        ping = self.client.get(reverse('ping'))
+        self.assertEqual(ping.status_code, 200, "Wrong HTTP code")
