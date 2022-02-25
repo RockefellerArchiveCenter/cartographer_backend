@@ -2,7 +2,6 @@ from datetime import datetime
 
 from asnake.aspace import ASpace
 from asnake.jsonmodel import JSONModelObject
-from cartographer_backend import settings
 from django.core.exceptions import FieldError
 from django.db.models import Sum
 from django.shortcuts import get_object_or_404
@@ -14,6 +13,8 @@ from rest_framework.response import Response
 from rest_framework.schemas.openapi import AutoSchema
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
+
+from cartographer_backend import settings
 
 from .models import (ArrangementMap, ArrangementMapComponent,
                      DeletedArrangementMap)
