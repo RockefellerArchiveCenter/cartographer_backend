@@ -10,7 +10,7 @@ repos:
   rev: 4.0.1
   hooks:
   - id: flake8
-- repo: git://github.com/pycqa/isort
+- repo: https://github.com/pycqa/isort
   rev: 5.10.1
   hooks:
   - id: isort
