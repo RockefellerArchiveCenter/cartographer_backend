@@ -27,7 +27,7 @@ django==4.0.4
     #   django-cors-headers
     #   django-js-asset
     #   djangorestframework
-django-cors-headers==3.11.0
+django-cors-headers==3.12.0
     # via -r requirements.in
 django-js-asset==2.0.0
     # via django-mptt
