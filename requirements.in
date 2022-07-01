@@ -6,4 +6,4 @@ django-mptt==0.13.4
 djangorestframework==3.13.1
 psycopg2-binary==2.9.3
 uritemplate==4.1.1
-vcrpy==4.1.1
+vcrpy==4.2.0
