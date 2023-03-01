@@ -14,7 +14,7 @@ attrs==22.2.0
     # via archivessnake
 bagit==1.8.1
     # via asterism
-boltons==21.0.0
+boltons==23.0.0
     # via archivessnake
 certifi==2022.12.7
     # via requests
@@ -27,7 +27,7 @@ django==4.1.7
     #   django-cors-headers
     #   django-js-asset
     #   djangorestframework
-django-cors-headers==3.13.0
+django-cors-headers==3.14.0
     # via -r requirements.in
 django-js-asset==2.0.0
     # via django-mptt
@@ -41,11 +41,11 @@ idna==3.4
     # via
     #   requests
     #   yarl
-more-itertools==9.0.0
+more-itertools==9.1.0
     # via archivessnake
 multidict==6.0.4
     # via yarl
-odin==2.2
+odin==2.4
     # via asterism
 psycopg2-binary==2.9.5
     # via
@@ -73,7 +73,7 @@ urllib3==1.26.14
     # via requests
 vcrpy==4.2.1
     # via -r requirements.in
-wrapt==1.14.1
+wrapt==1.15.0
     # via vcrpy
 yarl==1.8.2
     # via vcrpy
