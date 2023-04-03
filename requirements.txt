@@ -18,7 +18,7 @@ boltons==23.0.0
     # via archivessnake
 certifi==2022.12.7
     # via requests
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via requests
 django==4.1.7
     # via
@@ -45,19 +45,19 @@ more-itertools==9.1.0
     # via archivessnake
 multidict==6.0.4
     # via yarl
-odin==2.4
+odin==2.6
     # via asterism
 psycopg2-binary==2.9.5
     # via
     #   -r requirements.in
     #   asterism
-pytz==2022.7.1
+pytz==2023.3
     # via djangorestframework
 pyyaml==6.0
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==2.13.7
+rapidfuzz==2.14.0
     # via archivessnake
 requests==2.28.2
     # via archivessnake
@@ -69,7 +69,7 @@ structlog==22.3.0
     # via archivessnake
 uritemplate==4.1.1
     # via -r requirements.in
-urllib3==1.26.14
+urllib3==1.26.15
     # via requests
 vcrpy==4.2.1
     # via -r requirements.in
