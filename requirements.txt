@@ -18,9 +18,9 @@ boltons==23.0.0
     # via archivessnake
 certifi==2023.7.22
     # via requests
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
-django==4.2.4
+django==4.2.5
     # via
     #   -r requirements.in
     #   asterism
@@ -31,7 +31,7 @@ django-cors-headers==3.14.0
     # via -r requirements.in
 django-js-asset==2.1.0
     # via django-mptt
-django-mptt==0.14.0
+django-mptt==0.15.0
     # via -r requirements.in
 djangorestframework==3.14.0
     # via
@@ -45,15 +45,15 @@ more-itertools==10.1.0
     # via archivessnake
 multidict==6.0.4
     # via yarl
-psycopg2==2.9.7
+psycopg2==2.9.8
     # via -r requirements.in
-pytz==2023.3
+pytz==2023.3.post1
     # via djangorestframework
 pyyaml==6.0.1
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==3.2.0
+rapidfuzz==3.3.1
     # via archivessnake
 requests==2.31.0
     # via archivessnake
@@ -63,11 +63,11 @@ sqlparse==0.4.4
     # via django
 structlog==23.1.0
     # via archivessnake
-typing-extensions==4.7.1
+typing-extensions==4.8.0
     # via asgiref
 uritemplate==4.1.1
     # via -r requirements.in
-urllib3==2.0.4
+urllib3==2.0.5
     # via requests
 vcrpy==4.4.0
     # via -r requirements.in
