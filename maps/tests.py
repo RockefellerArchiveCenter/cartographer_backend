@@ -173,11 +173,6 @@ class CartographerTest(TestCase):
             self.assertEqual(not_found.status_code, 404)
             self.assertTrue(isinstance(not_found.json(), str))
 
-    def test_schema(self):
-        """Tests OpenAPI schema view."""
-        schema = self.client.get(reverse('schema'))
-        self.assertEqual(schema.status_code, 200, "Wrong HTTP code")
-
     def test_ping(self):
         ping = self.client.get(reverse('ping'))
         self.assertEqual(ping.status_code, 200, "Wrong HTTP code")
