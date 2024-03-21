@@ -33,8 +33,6 @@ Or, if you want to remove all data
 |GET|/maps|`modified_since` - returns only maps modified since the time provided (as a Unix timestamp) <br/>`published` - if present, returns only published maps|200|Returns a list of maps, ordered by most recent first|
 |GET|/delete-feed|`deleted_since` - returns only maps deleted since the time provided (as a Unix timestamp)|200|Returns a list of deleted maps, ordered by most recent first|
 |GET|/status||200|Returns the status of the application|
-|GET|/schema.json||200|Returns the OpenAPI schema for this application|
-
 
 ## Development
 
