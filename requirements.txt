@@ -20,7 +20,7 @@ certifi==2024.2.2
     # via requests
 charset-normalizer==3.3.2
     # via requests
-django==4.2.11
+django==4.2.13
     # via
     #   -r requirements.in
     #   asterism
@@ -51,17 +51,17 @@ pyyaml==6.0.1
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==3.8.1
+rapidfuzz==3.9.3
     # via archivessnake
-requests==2.31.0
+requests==2.32.3
     # via archivessnake
 six==1.16.0
     # via vcrpy
 sqlparse==0.5.0
     # via django
-structlog==24.1.0
+structlog==24.2.0
     # via archivessnake
-typing-extensions==4.11.0
+typing-extensions==4.12.0
     # via asgiref
 uritemplate==4.1.1
     # via -r requirements.in
