@@ -16,11 +16,11 @@ bagit==1.8.1
     # via asterism
 boltons==24.0.0
     # via archivessnake
-certifi==2024.6.2
+certifi==2024.7.4
     # via requests
 charset-normalizer==3.3.2
     # via requests
-django==4.2.13
+django==4.2.14
     # via
     #   -r requirements.in
     #   asterism
@@ -51,15 +51,15 @@ pyyaml==6.0.1
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==3.9.3
+rapidfuzz==3.9.5
     # via archivessnake
 requests==2.32.3
     # via archivessnake
 six==1.16.0
     # via vcrpy
-sqlparse==0.5.0
+sqlparse==0.5.1
     # via django
-structlog==24.2.0
+structlog==24.4.0
     # via archivessnake
 typing-extensions==4.12.2
     # via asgiref
