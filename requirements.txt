@@ -18,7 +18,7 @@ boltons==24.0.0
     # via archivessnake
 certifi==2024.8.30
     # via requests
-charset-normalizer==3.3.2
+charset-normalizer==3.4.0
     # via requests
 django==4.2.16
     # via
@@ -45,13 +45,15 @@ more-itertools==10.5.0
     # via archivessnake
 multidict==6.1.0
     # via yarl
-psycopg2==2.9.9
+propcache==0.2.0
+    # via yarl
+psycopg2==2.9.10
     # via -r requirements.in
 pyyaml==6.0.2
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==3.10.0
+rapidfuzz==3.10.1
     # via archivessnake
 requests==2.32.3
     # via archivessnake
@@ -73,5 +75,5 @@ vcrpy==4.4.0
     # via -r requirements.in
 wrapt==1.16.0
     # via vcrpy
-yarl==1.13.1
+yarl==1.17.1
     # via vcrpy
