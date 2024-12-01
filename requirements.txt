@@ -14,7 +14,7 @@ attrs==24.2.0
     # via archivessnake
 bagit==1.8.1
     # via asterism
-boltons==24.0.0
+boltons==24.1.0
     # via archivessnake
 certifi==2024.8.30
     # via requests
@@ -59,7 +59,7 @@ requests==2.32.3
     # via archivessnake
 six==1.16.0
     # via vcrpy
-sqlparse==0.5.1
+sqlparse==0.5.2
     # via django
 structlog==24.4.0
     # via archivessnake
@@ -73,7 +73,7 @@ urllib3==2.2.3
     # via requests
 vcrpy==4.4.0
     # via -r requirements.in
-wrapt==1.16.0
+wrapt==1.17.0
     # via vcrpy
-yarl==1.17.1
+yarl==1.18.0
     # via vcrpy
