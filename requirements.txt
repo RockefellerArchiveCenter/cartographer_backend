@@ -70,8 +70,10 @@ typing-extensions==4.12.2
 uritemplate==4.1.1
     # via -r requirements.in
 urllib3==2.2.3
-    # via requests
-vcrpy==4.4.0
+    # via
+    #   requests
+    #   vcrpy
+vcrpy==7.0.0
     # via -r requirements.in
 wrapt==1.17.0
     # via vcrpy
