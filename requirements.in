@@ -6,4 +6,4 @@ django-mptt~=0.13
 djangorestframework~=3.13
 psycopg2~=2.9
 uritemplate~=4.1
-vcrpy~=4.2
+vcrpy~=7.0
