@@ -57,8 +57,6 @@ rapidfuzz==3.11.0
     # via archivessnake
 requests==2.32.3
     # via archivessnake
-six==1.17.0
-    # via vcrpy
 sqlparse==0.5.3
     # via django
 structlog==24.4.0
@@ -70,8 +68,10 @@ typing-extensions==4.12.2
 uritemplate==4.1.1
     # via -r requirements.in
 urllib3==2.3.0
-    # via requests
-vcrpy==4.4.0
+    # via
+    #   requests
+    #   vcrpy
+vcrpy==7.0.0
     # via -r requirements.in
 wrapt==1.17.0
     # via vcrpy
