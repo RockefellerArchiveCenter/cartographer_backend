@@ -16,7 +16,7 @@ bagit==1.8.1
     # via asterism
 boltons==25.0.0
     # via archivessnake
-certifi==2025.1.31
+certifi==2025.4.26
     # via requests
 charset-normalizer==3.4.1
     # via requests
@@ -31,7 +31,7 @@ django-cors-headers==3.14.0
     # via -r requirements.in
 django-js-asset==3.1.2
     # via django-mptt
-django-mptt==0.16.0
+django-mptt==0.17.0
     # via -r requirements.in
 djangorestframework==3.16.0
     # via
@@ -41,9 +41,9 @@ idna==3.10
     # via
     #   requests
     #   yarl
-more-itertools==10.6.0
+more-itertools==10.7.0
     # via archivessnake
-multidict==6.3.0
+multidict==6.4.3
     # via yarl
 propcache==0.3.1
     # via yarl
@@ -53,22 +53,22 @@ pyyaml==6.0.2
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==3.12.2
+rapidfuzz==3.13.0
     # via archivessnake
 requests==2.32.3
     # via archivessnake
 sqlparse==0.5.3
     # via django
-structlog==25.2.0
+structlog==25.3.0
     # via archivessnake
-typing-extensions==4.13.0
+typing-extensions==4.13.2
     # via
     #   asgiref
     #   multidict
     #   structlog
 uritemplate==4.1.1
     # via -r requirements.in
-urllib3==2.3.0
+urllib3==2.4.0
     # via
     #   requests
     #   vcrpy
@@ -76,5 +76,5 @@ vcrpy==7.0.0
     # via -r requirements.in
 wrapt==1.17.2
     # via vcrpy
-yarl==1.18.3
+yarl==1.20.0
     # via vcrpy
