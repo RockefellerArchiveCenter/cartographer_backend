@@ -1,4 +1,4 @@
-FROM python:3.10-buster
+FROM python:3.10-bookworm
 
 # set environment variables
 ENV PYTHONUNBUFFERED 1
