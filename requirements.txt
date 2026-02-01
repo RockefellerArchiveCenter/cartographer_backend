@@ -10,7 +10,7 @@ bagit==1.9.0
     # via asterism
 boltons==25.0.0
     # via archivessnake
-certifi==2025.11.12
+certifi==2026.1.4
     # via requests
 charset-normalizer==3.4.4
     # via requests
@@ -37,7 +37,7 @@ idna==3.11
     #   yarl
 more-itertools==10.8.0
     # via archivessnake
-multidict==6.7.0
+multidict==6.7.1
     # via yarl
 propcache==0.4.1
     # via yarl
@@ -62,13 +62,13 @@ typing-extensions==4.15.0
     #   structlog
 uritemplate==4.2.0
     # via -r requirements.in
-urllib3==2.6.2
+urllib3==2.6.3
     # via
     #   requests
     #   vcrpy
 vcrpy==7.0.0
     # via -r requirements.in
-wrapt==2.0.1
+wrapt==2.1.0
     # via vcrpy
 yarl==1.22.0
     # via vcrpy
