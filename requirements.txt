@@ -10,11 +10,11 @@ bagit==1.9.0
     # via asterism
 boltons==25.0.0
     # via archivessnake
-certifi==2026.2.25
+certifi==2026.4.22
     # via requests
-charset-normalizer==3.4.6
+charset-normalizer==3.4.7
     # via requests
-django==4.2.29
+django==4.2.30
     # via
     #   -r requirements.in
     #   asterism
@@ -31,23 +31,23 @@ djangorestframework==3.17.1
     # via
     #   -r requirements.in
     #   asterism
-idna==3.11
+idna==3.13
     # via
     #   requests
     #   yarl
-more-itertools==10.8.0
+more-itertools==11.0.2
     # via archivessnake
 multidict==6.7.1
     # via yarl
 propcache==0.4.1
     # via yarl
-psycopg2==2.9.11
+psycopg2==2.9.12
     # via -r requirements.in
 pyyaml==6.0.3
     # via
     #   archivessnake
     #   vcrpy
-rapidfuzz==3.14.3
+rapidfuzz==3.14.5
     # via archivessnake
 requests==2.33.1
     # via archivessnake
