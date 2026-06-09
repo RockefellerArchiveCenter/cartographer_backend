@@ -1,16 +1,15 @@
 name: Deploy
 
 on:
-  push:
-    branches:
-      - base
+  release:
+    types: [published]
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     environment:
-      name: ${{ github.ref_name }}
+      name: ${{ github.event_name == 'release' && 'base' || github.ref_name }}
 
     env:
       APPLICATION_NAME: cartographer_backend
