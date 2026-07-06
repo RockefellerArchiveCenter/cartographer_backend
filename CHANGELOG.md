@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.1](https://github.com/RockefellerArchiveCenter/cartographer_backend/compare/v1.0.0...v1.0.1) (2026-07-06)
+
+
+### Bug Fixes
+
+* **deps:** Scheduled dependency updates ([46c27ad](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/46c27adda4523320ac5aab8c8e1d8b48676fdde8))
+* **deps:** Scheduled dependency updates ([bf88e9a](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/bf88e9a6143b0049a6e99aabeab305b24dd3fe7d))
+* **deps:** Scheduled dependency updates ([457a0fc](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/457a0fc07d6780519e33689f161275473a1aac96))
+* **deps:** Scheduled dependeny updates ([bf88e9a](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/bf88e9a6143b0049a6e99aabeab305b24dd3fe7d))
+
 ## 1.0.0 (2026-06-18)
 
 
