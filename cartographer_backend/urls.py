@@ -1,10 +1,9 @@
-from asterism.views import PingView
 from django.contrib import admin
 from django.urls import include, path, re_path
 from rest_framework import routers
 
 from maps.views import (ArrangementMapComponentViewset, ArrangementMapViewset,
-                        DeletedArrangementMapView, FindByURIView,
+                        DeletedArrangementMapView, FindByURIView, PingView,
                         ResourceFetcherView)
 
 router = routers.DefaultRouter()
