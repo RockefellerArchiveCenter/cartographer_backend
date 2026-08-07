@@ -2,12 +2,8 @@ archivessnake==0.10.1
     # via -r requirements.in
 asgiref==3.12.1
     # via django
-asterism==1.1.2
-    # via -r requirements.in
 attrs==26.1.0
     # via archivessnake
-bagit==1.9.0
-    # via asterism
 boltons==26.1.0
     # via archivessnake
 certifi==2026.7.22
@@ -17,7 +13,6 @@ charset-normalizer==3.4.9
 django==4.2.30
     # via
     #   -r requirements.in
-    #   asterism
     #   django-cors-headers
     #   django-js-asset
     #   djangorestframework
@@ -30,7 +25,6 @@ django-mptt==0.18.0
 djangorestframework==3.17.1
     # via
     #   -r requirements.in
-    #   asterism
 idna==3.18
     # via
     #   requests
