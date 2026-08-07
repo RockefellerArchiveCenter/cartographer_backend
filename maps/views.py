@@ -195,3 +195,11 @@ class FindByURIView(ListAPIView):
             return ArrangementMapComponent.objects.filter(archivesspace_uri=uri)
         except KeyError:
             raise ParseError("Required URL parameter `uri` missing.")
+
+
+class PingView(APIView):
+    """Returns a response if the application is running."""
+
+    def get(self, request):
+        return Response({"pong": True}, status=200)
+        

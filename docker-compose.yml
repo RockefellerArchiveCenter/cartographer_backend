@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   cartographer-db:
     image: postgres:14.4
