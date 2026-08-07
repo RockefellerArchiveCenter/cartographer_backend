@@ -202,4 +202,3 @@ class PingView(APIView):
 
     def get(self, request):
         return Response({"pong": True}, status=200)
-        
