@@ -1,8 +1,8 @@
 ArchivesSnake~=0.9
 Django~=4.1
-django-cors-headers~=3.13
-django-mptt~=0.13
-djangorestframework~=3.13
+django-cors-headers~=4.9
+django-mptt~=0.18
+djangorestframework~=3.17
 psycopg2~=2.9
-uritemplate~=4.1
-vcrpy~=7.0
+uritemplate~=4.2
+vcrpy~=8.3
