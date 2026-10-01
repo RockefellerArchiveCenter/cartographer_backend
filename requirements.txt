@@ -6,11 +6,11 @@ asgiref==3.12.1
     #   django-cors-headers
 attrs==26.1.0
     # via archivessnake
-boltons==26.1.0
+boltons==26.2.0
     # via archivessnake
 certifi==2026.7.22
     # via requests
-charset-normalizer==3.5.1
+charset-normalizer==3.5.2
     # via requests
 django==4.2.30
     # via
@@ -20,17 +20,17 @@ django==4.2.30
     #   djangorestframework
 django-cors-headers==4.9.0
     # via -r requirements.in
-django-js-asset==4.1.0
+django-js-asset==4.2.0
     # via django-mptt
 django-mptt==0.18.0
     # via -r requirements.in
 djangorestframework==3.17.2
     # via -r requirements.in
-idna==3.19
+idna==3.20
     # via requests
 more-itertools==11.1.0
     # via archivessnake
-psycopg2==2.9.12
+psycopg2==2.9.13
     # via -r requirements.in
 pyyaml==6.0.3
     # via
@@ -50,9 +50,9 @@ typing-extensions==4.16.0
     #   structlog
 uritemplate==4.2.0
     # via -r requirements.in
-urllib3==2.7.0
+urllib3==2.8.0
     # via requests
 vcrpy==8.3.0
     # via -r requirements.in
-wrapt==2.4.0
+wrapt==2.5.0
     # via vcrpy
