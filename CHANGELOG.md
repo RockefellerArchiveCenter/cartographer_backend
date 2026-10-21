@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.6](https://github.com/RockefellerArchiveCenter/cartographer_backend/compare/v1.0.5...v1.0.6) (2026-10-21)
+
+
+### Bug Fixes
+
+* pip and deps ([4b2a663](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/4b2a663d09a67f8618e5c738a883b68a7b745c56))
+* pip and deps ([4b2a663](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/4b2a663d09a67f8618e5c738a883b68a7b745c56))
+* pip and deps ([3045d37](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/3045d37cc66f683ceac623273f8deb6398bd83cd))
+* pip and deps ([3045d37](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/3045d37cc66f683ceac623273f8deb6398bd83cd))
+* pip and deps ([3a493fd](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/3a493fdf871bb31beadc5b47863a28baa21ee33e))
+
 ## [1.0.5](https://github.com/RockefellerArchiveCenter/cartographer_backend/compare/v1.0.4...v1.0.5) (2026-10-06)
 
 
