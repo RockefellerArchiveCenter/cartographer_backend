@@ -13,8 +13,8 @@ WORKDIR /code/cartographer_backend/
 
 # install dependencies
 COPY requirements.txt /code/cartographer_backend/
-RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+RUN python -m pip install --upgrade "pip>=26.2.2" \
+    && python -m pip install --no-cache-dir -r requirements.txt
 
 # copy project
 COPY . /code/cartographer_backend/
