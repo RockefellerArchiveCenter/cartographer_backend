@@ -13,7 +13,7 @@ hooks:
       timeout: 300
   ApplicationStart:
     - location: deploy_scripts/restart_httpd.sh
-      timeout: 20
+      timeout: 120
   ValidateService:
     - location: deploy_scripts/curl_index.sh
       timeout: 10
