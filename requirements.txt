@@ -8,7 +8,7 @@ attrs==26.1.0
     # via archivessnake
 boltons==26.2.0
     # via archivessnake
-certifi==2026.10.19
+certifi==2026.10.23
     # via requests
 charset-normalizer==3.5.2
     # via requests
@@ -20,9 +20,9 @@ django==4.2.30
     #   djangorestframework
 django-cors-headers==4.9.0
     # via -r requirements.in
-django-js-asset==4.2.0
+django-js-asset==5.0.0
     # via django-mptt
-django-mptt==0.20.0
+django-mptt==0.21.0
     # via -r requirements.in
 djangorestframework==3.17.2
     # via -r requirements.in
@@ -52,7 +52,7 @@ uritemplate==4.2.0
     # via -r requirements.in
 urllib3==2.8.0
     # via requests
-vcrpy==8.3.0
+vcrpy==8.5.0
     # via -r requirements.in
-wrapt==2.5.1
+wrapt==2.5.2
     # via vcrpy
