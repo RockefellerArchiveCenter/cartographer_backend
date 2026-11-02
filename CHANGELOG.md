@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.8](https://github.com/RockefellerArchiveCenter/cartographer_backend/compare/v1.0.7...v1.0.8) (2026-11-02)
+
+
+### Bug Fixes
+
+* increase httpd restart timer ([74746d7](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/74746d71237aecbe4451e75e2b662ca366df8723))
+* increase httpd restart timer ([74746d7](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/74746d71237aecbe4451e75e2b662ca366df8723))
+* increase httpd restart timer ([8035ebe](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/8035ebeeafb31ec94a58425bbfe9bf8a43e7bffc))
+* increase httpd restart timer ([8035ebe](https://github.com/RockefellerArchiveCenter/cartographer_backend/commit/8035ebeeafb31ec94a58425bbfe9bf8a43e7bffc))
+
 ## [1.0.7](https://github.com/RockefellerArchiveCenter/cartographer_backend/compare/v1.0.6...v1.0.7) (2026-11-02)
 
 
